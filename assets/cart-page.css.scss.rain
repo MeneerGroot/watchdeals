@@ -1,0 +1,512 @@
+{# =========== 00 VARIABLES =========== #}
+{# Layout #}
+$block: block;
+$12: 12px;
+$center: center;
+$right: right;
+
+$soft-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+$med-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+{# Typography  #}
+$base-font: Montserrat, sans-serif;
+$sec-font: Montserrat, sans-serif;
+$base-font-size: 14px;
+
+{# Color Scheme #}
+$primary-color: #FFFFFF;
+$light-gray: #F8F8F8;
+$secondary-color: #3C3C3C;
+$highlight-color: #26CB6B;
+$highlight-color-2: #1FA9FF;
+$silver: #d6d6d6;
+
+{# Breakpoints #}
+$medium: 768px;
+$small: 420px;
+
+.gui {
+	* {padding:0; margin:0; border:0; outline:0;}
+	.gui-clearfix {
+  * {zoom: 1;}
+  	&:before, &:after {content:" "; display:table; }
+  }
+  .gui-clear, .gui-clearfix:after {clear: both;}
+  .gui-page-title {font-size: 2.2rem; }
+}
+
+.gui-checkout {
+  &-default, &-method {width: 100%; padding: 2rem; background:$primary-color; border-radius: $12; box-shadow:$soft-shadow}
+}
+
+.gui-margin-fix,
+#gui-popover-terms-and-conditions,
+.gui-block-title {display: none; }
+
+/* others */
+.gui-buttons {
+	.gui-left {float: left;}
+	.gui-right {float: right;}
+}
+
+.gui-buttons.gui-buttons-large.gui-border {
+  width: 100%;
+  margin: 20px 0; }
+
+.gui-buttons.gui-border {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ccc; }
+
+.gui-valign-bottom {
+  vertical-align: bottom; }
+
+.gui-valign-middle {
+  vertical-align: middle; }
+
+.gui-valign-top {
+  vertical-align: top; }
+  
+/* hide elements */
+input[type="hidden"].gui-hide, input[type="password"].gui-hide, input[type="email"].gui-hide, input[type="text"].gui-hide, textarea.gui-hide, select.gui-hide, button.gui-hide, input[type="submit"].gui-hide, input[type="reset"].gui-hide, input[type="button"].gui-hide, .gui-hide, .gui-col2-right-col2.gui-checkout-progress {
+  display: none; }
+
+.gui-invisible {
+  visibility: hidden; }
+/* links
+ /* Buttons */
+.gui a.gui-button-small {
+  display: inline-block;
+  background-color: #e1d4b4;
+  padding: 8px 16px; }
+
+.gui a.gui-button-large.gui-button-disabled, .gui a.gui-button-small.gui-button-disabled {
+  color: #666;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #8d8d8d;
+  opacity: 0.5; }
+/* Gui-blocks
+ _________________________*/
+
+/* variants */
+.gui-block-disabled {
+  cursor: default;
+  opacity: 0.5; }
+  
+/* block-content */
+.gui-block-highlight .gui-block-content .gui-table {
+  padding-bottom: 0px; }
+
+.gui-thankyou .gui-block-content .gui-table {
+  margin-bottom: 30px; }
+
+.gui-thankyou .gui-spacer {
+  display: none; }
+/* content */
+.gui-content-wysiwyg {
+  margin: 5px 0;
+  font-size: 13px; }
+
+.gui-content-wysiwyg ul {
+  margin-left: 20px; }
+/* Unordered list
+ _________________________*/
+/* linklist */
+.gui-block-linklist, .gui-block-productlist {
+  list-style-type: none; }
+
+.gui-block-linklist li {
+  border-bottom: 1px solid #ddd; }
+
+.gui-block-linklist li a {
+  display: block;
+  overflow: hidden;
+  color: #333;
+  padding: 10px 0px; }
+
+.gui-block-linklist li:last-child, .gui-block-productlist li:last-child {
+  border: 0; }
+/* productlist */
+.gui-block-productlist li .gui-block-productlist-text {
+  overflow: hidden;
+  line-height: 22px; }
+
+.gui-block-productlist li .gui-block-productlist-text a {
+  white-space: nowrap; }
+
+.gui-block-productlist li.large {
+  margin-bottom: 15px; }
+/* cart summary
+ _________________________*/
+.gui-cart-sum .gui-line {
+  height: 1px;
+  margin: 15px 0;
+  background: #ccc; }
+
+.gui-cart-sum .gui-item .gui-price {
+  width: 25%;
+  display: inline-block;
+  text-align: right; }
+
+.gui-cart-sum .gui-item .gui-desc {
+  width: 70%;
+  display: inline-block;
+  font-size: 1.4rem; }
+
+.gui-cart-sum .gui-action.gui-action-delete {
+  margin-top: 6px; }
+
+.gui-div-cart-sum .gui-button-large.gui-button-action {
+  display: block; }
+
+.gui-cart .checkout-delivery-time {
+  font-size: 10px; }
+
+.gui-cart .gui-bundle {
+  padding-top: 10px; }
+
+.gui-cart .gui-bundle span {
+  float: left;
+  height: 44px;
+  line-height: 44px;
+  font-weight: bold;
+  padding: 0 5px 0; }
+
+.gui-cart .gui-bundle .gui-image {
+  float: left;
+  margin-bottom: 10px; }
+/* Grid
+ _________________________*/
+.gui-col2-big .gui-col2-big-col1 {
+  float: left;
+  width: 55%; }
+
+.gui-col2-big .gui-col2-big-col2 {
+  float: right;
+  width: 40%; }
+
+.gui-col2-equal .gui-col2-equal-col1 {
+  float: left;
+  width: 48.5%; }
+
+.gui-checkout-method .gui-col2-equal .gui-col2-equal-col1 {
+  border-right: 1px solid #ccc;
+  padding: 20px; }
+
+.gui-checkout-method .gui-col2-equal .gui-col2-equal-col2 {
+  padding: 20px; }
+
+.gui-col2-equal .gui-col2-equal-col2 {
+  float: right;
+  width: 48.5%; }
+
+.gui-col2-left .gui-col2-left-col1 {
+  float: left;
+  width: 25%; }
+
+.gui-col2-left .gui-col2-left-col2 {
+  float: right;
+  width: 72%; }
+
+.gui-col2-leftm .gui-col2-leftm-col1 {
+  float: left;
+  width: 37%; }
+
+.gui-col2-leftm .gui-col2-leftm-col2 {
+  float: right;
+  width: 60%; }
+
+.gui-col2-right .gui-col2-right-col2 {
+  float: right;
+  width: 25%; }
+
+.gui-col2-rightm .gui-col2-rightm-col1 {
+  float: left;
+  width: 60%; }
+
+.gui-col2-rightm .gui-col2-rightm-col2 {
+  float: right;
+  width: 37%; }
+
+.gui-col3-center .gui-col3-center-col1 {
+  float: left;
+  width: 25%;
+  margin-right: 3%; }
+
+.gui-col3-center .gui-col3-center-col2 {
+  float: left;
+  width: 44%; }
+
+.gui-col3-center .gui-col3-center-col3 {
+  float: right;
+  width: 25%; }
+
+.gui-col3-equal .gui-col3-equal-col1 {
+  float: left;
+  width: 30%;
+  margin-right: 3%; }
+
+.gui-col3-equal .gui-col3-equal-col2 {
+  float: left;
+  width: 30%; }
+
+.gui-col3-equal .gui-col3-equal-col3 {
+  float: right;
+  width: 34%; }
+/* form
+ _________________________*/
+.gui-form .gui-radio span {
+  display: block;
+  padding-left: 22px;
+  color: #333; }
+
+.gui-form .gui-error .gui-input, .gui-form .gui-error .gui-select, .gui-form .gui-error .gui-text {
+  border-color: #c80805; }
+
+.gui-form .gui-error .gui-message {
+  display: block; }
+
+.gui-form .gui-error .gui-select .gui-handle {
+  border-left: 1px solid #c80805; }
+
+.gui-form .gui-message {
+  display: none;
+  height: 20px;
+  font-size: 90%;
+  line-height: 20px;
+  color: #c80805; }
+
+.gui-form .gui-spacer {
+  height: 15px; }
+
+.gui-form label em {
+  font-style: normal;
+  color: #dd3c10; }
+
+.gui-form .gui-no-validate label em {
+  display: none; }
+
+.gui-form .gui-field-info {
+  padding-top: 35px;
+  font-size: 90%; }
+/* input */
+.gui-input, .gui-text {
+  position: relative;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.gui-input input, .gui-text textarea {
+  padding: 12px;
+  outline: none;
+  font-size:1.4rem;
+}
+
+.gui-input input:focus, .gui-text textarea:focus {
+  border: 0px; }
+
+.gui-input.gui-focus, .gui-text.gui-focus {
+  border-color: #e1d4b4; }
+/* messages
+ _________________________*/
+.gui-messages, .messages {
+  width: 100%;
+  line-height: 20px;
+  margin-bottom: 30px; }
+
+.gui-messages ul, .messages ul {
+  padding: 10px 15px;
+  color: #3b5998;
+  background: #eceff5;
+  list-style-type: none;
+ }
+
+.gui-radio label {
+    display: inline-block;
+}
+
+.gui-messages ul.gui-error {
+  color: #dd3c10;
+  background: #fcece8; }
+
+.gui-messages ul.gui-success {
+  color: #609946;
+  background: #eff5ed; }
+
+.gui-messages ul.gui-warning {
+  color: #e2c822;
+  background: #fcfae9; }
+/* .Gui-select
+ _________________________*/
+.gui-select .gui-value, .gui-select .gui-handle {
+  display: none; }
+
+.gui-select select {
+  max-width: inherit;
+  height: 42px;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #ccc; }
+/* .Gui-select
+ _________________________*/
+.gui-confirm .gui-checkbox {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0; }
+
+.gui-table table {
+  width: 100%; }
+
+.gui-table tbody tr td {
+  padding: 4px;
+  border-top: 1px solid #ccc; }
+/* Progressbar
+ _________________________*/
+.gui-progressbar {
+	margin:1.2rem 0; border:1px solid $silver;
+}
+
+.gui-progressbar .gui-indicator, .gui-progressbar .gui-cart {
+  display: none; }
+
+.gui-progressbar ul {
+  list-style: none;
+  height: 40px;
+  line-height: 40px; }
+
+.gui-progressbar ul li {
+  width: 25%;
+  float: left;
+  display: block;
+  text-align: center; }
+
+.gui-progressbar ul li:not(:last-child) {
+  border-right: 1px solid #ccc; }
+/* International addresses
+ _________________________*/
+.gui-address-line2 {
+  display: none; }
+
+.gui-format-international .gui-address-line2 {
+  display: block; }
+
+.gui-format-international .gui-address-row-1 .gui-col2-equal-col1 {
+  width: 100%; }
+
+.gui-format-international .gui-address-row-1 .gui-col2-equal-col2 {
+  display: none; }
+
+.gui-format-international .gui-address-row-2 .gui-col2-equal-col1 {
+  float: right; }
+
+.gui-format-international .gui-address-row-2 .gui-col2-equal-col2 {
+  float: left; }
+/* others
+ _________________________*/
+
+#gui-form-comment {
+  height: 100px; }
+
+.gui-required, .gui-notice {
+  height: 16px;
+  margin-top: 10px;
+  font-size: 90%;
+  line-height: 16px;
+  text-align: right; }
+
+.gui-required {
+  color: #c80805;
+  margin: 1em 0; }
+
+.wsa-cookielaw {
+  height: auto !important;
+  white-space: inherit !important; }
+
+.gui-checkout .gui-progressbar ul li.gui-done a {
+  color: #aab3b3 !important; }
+
+.gui-scroll .gui-content-wysiwyg {
+  display: block !important; }
+
+#gui-form-shipment-method .gui-field-content, #gui-checkout-payment-methods .gui-block-subtitle {
+  display: none; }
+
+#gui-form-shipment-method .gui-block-option:not(:last-child), #gui-checkout-payment-methods .gui-block-subtitle:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0px 20px 0; }
+
+#gui-form-shipment-method label.gui-left, #gui-checkout-payment-methods label.gui-left {
+  display: inline-block;
+  font-size: 1.35rem;
+  width: 75% !important;
+  float: left; }
+
+#gui-form-shipment-method .gui-right, #gui-checkout-payment-methods .gui-right {
+  display: inline-block;
+  float: left;
+  color: #24a524;
+  font-size: 1rem;
+  margin-right: 4px; }
+
+#gui-form-shipment-method .gui-block-option .gui-field .gui-radio > input, #gui-checkout-payment-methods .gui-block-subtitle .gui-radio > input {
+  display: inline-block;
+  float: left;
+  max-width: 18px;
+  margin-right: 10px;
+  margin-top: 0px; }
+
+.gui-payment-method-service.gui-payment-method-service-last > label {
+  border-bottom: 1px solid #eee !important; }
+
+.gui-checkout .gui-progressbar ul li.gui-active, li a {
+  background-image: none !important; }
+
+a.gui-button-large.gui-button-action {
+  background: #e1d4b4;
+  padding: 8px 16px;
+  display: inline-block; }
+
+
+
+.gui-checkout-review .gui-image.gui-image-50 {
+  width: 50px; }
+
+.gui-checkout-review .gui-block-content, .gui-checkout-review .gui-col2-equal-col1, .gui-checkout-review .gui-col2-equal-col2 {
+  max-width: 480px !important;
+  width: 100% !important; }
+
+.gui-cart-sum .gui-item {
+  margin-top: 20px; }
+
+.gui-checkbox label:last-child :after {
+    content: '*';
+    position: absolute;
+    font-size: 1.4rem;
+    color: red;
+    margin-left:4px;
+}
+
+.gui-confirm .gui-field .gui-checkbox label {
+  font-size: 1.4rem; }
+
+@media (max-width: 767px) {
+  .gui-progressbar, .gui-div-cart-related {
+    display: none; }
+
+  .gui-thankyou .gui-col2-big .gui-col2-big-col2 {
+    width: 100%; } 
+
+  .gui-checkout-method .gui-col2-equal .gui-col2-equal-col1 {
+  border-right: none;
+  border-bottom: 1px solid #ccc;
+  padding: 20px; }
+
+}
+
+.gui-checkout-method .gui-col2-equal .gui-col2-equal-col2, .gui-checkout-method .gui-block-subtitle.gui-bigger, p.gui-bigger {
+    display: none;
+}
+
+.gui-checkout-method .gui-col2-equal .gui-col2-equal-col1 {
+    width:100%;
+}

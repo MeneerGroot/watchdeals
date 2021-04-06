@@ -1,0 +1,108 @@
+{# =========== 00 VARIABLES =========== #}
+{# Layout #}
+$block: block;
+$12: 12px;
+$center: center;
+$right: right;
+
+$soft-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+$med-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+{# Typography  #}
+$base-font: Montserrat, sans-serif;
+$sec-font: Montserrat, sans-serif;
+$base-font-size: 14px;
+
+{# Color Scheme #}
+$primary-color: #FFFFFF;
+$light-gray: #F8F8F8;
+$secondary-color: #3C3C3C;
+$highlight-color: #26CB6B;
+$highlight-color-2: #1FA9FF;
+$silver: #d6d6d6;
+
+{# Breakpoints #}
+$medium: 768px;
+$small: 420px;
+
+{# GENERAL #}
+#gui-popover {display: none;}
+
+a.gui-cart {display: none;}
+.gui-cart {
+	width: 100%; padding: 2rem; background:$primary-color; border-radius: $12; box-shadow:$soft-shadow;
+  tr {border-bottom: 1px solid $silver;}
+  .gui-page-title {font-size: 2.2rem; margin: $12 0;}
+  .gui-progressbar{display:none}
+}
+
+{# CART TABLE #}
+#gui-form-cart {
+	img {max-width:100px;}
+  .cart_variant {margin:0;}
+  .gui-number {position: relative;max-width: 56px;}
+  ul > li {list-style:none;}
+  table, tbody {width: 100%; border-top: 1px solid $silver;}
+  thead {display: none;}
+  tbody {
+  	td {display:inline-block;padding: 8px;}
+      tr:not(:last-child) td {
+				&:first-child {width:12.5%;}
+        &:nth-child(2) {width:37.5%;}
+        &:nth-child(n+3) {width:12.5%;}
+    }
+  }
+  a.gui-action.gui-action-delete {visibility: hidden;
+  	&:before {visibility: visible;content:'✕';}
+  }
+  .gui-number .gui-handle {
+  	position:absolute; top:0; right:0; border-left:1px solid $silver;
+    a {display:block; width:21px; height:21px; text-align:center;}
+    a.gui-down {border-top:1px solid $silver;}
+  }
+}
+
+.gui-value input[type="text"] {width: 56px;height: 42px;padding-left: 14px;border: 1px solid $silver;}
+
+.gui-cart {
+	.gui-button-action {background: $highlight-color; padding: $12 24px; border-radius:4px; margin: 20px 0; display:inline-block; box-shadow:$soft-shadow;}
+  ul.gui-products {padding: 0px; display: inline-block; list-style: none;}
+	.gui-col3-equal-col2.gui-div-cart-coupons, .gui-col3-equal-col1.gui-div-cart-related {
+  	display:block; vertical-align:top; padding: 1.4rem; margin-top:20px; min-height:92px;
+    input#gui-form-code {padding: 6px $12;width: 100%; height:42px; font-family:$base-font; font-size: $base-font-size; border:1px solid $silver;}
+    a.gui-button-small {background:$silver; padding:$12 24px;}
+		tr {border-bottom: 0px;}  
+  }
+  .gui-col3-equal-col3.gui-div-cart-sum {text-align: right; margin: 2.8rem 0; border-top: 1px dashed #3c3c3c;
+  	.gui-desc, .gui-price {display:inline-block; padding-left:$12;}
+    .gui-item.gui-big {padding-top: 2.8rem;}
+  }
+  .gui-table tbody tr:last-child > td {
+  	> a {color: $silver; font-size:$base-font-size;}
+    &:last-child {display:none !important;}
+  }
+}
+
+#gui-form-upsells {
+	margin-top: 8px;
+	.gui-buttons.gui-border {display:inline-block}
+	.gui-right > a.gui-button-small {visibility:hidden;}
+	.gui-right > a.gui-button-small:before { visibility:visible; content:"Toevoegen";}
+	.gui-products-info,
+	.gui-products-title,
+	.gui-products-image,
+	.gui-products-price {display:none;}
+}
+
+{# MOBILE STYLING #}
+@media screen and (max-width: $medium) {
+  
+	#gui-form-cart .gui-table tbody tr:not(:last-child) td {
+    &:first-child {width: 12.5%; padding:2px;}
+    &:nth-child(2) {width: 50%;}
+    &:nth-child(3) {width: 25%;}
+    &:nth-child(4) {width: 6.25%;max-height: 140px;overflow: hidden;}
+    &:nth-child(n+5) {width: 50%; border-top: 1px solid $silver;}
+  }
+
+}

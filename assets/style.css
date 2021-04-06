@@ -1,0 +1,92 @@
+/* ========================
+2.3 SEARCH
+======================== */
+.search-form .search input::-ms-clear{display: none;}
+.search-form .searched{transition: all 0.5s;position:relative;width: 40px;height: 48px;}
+
+@media screen and (max-width: 767px){
+  .search-form .searched {width:100%;}
+  #search-expanded .tui input[type=search] {display:block;}
+}
+
+form.searched:hover {width: 100%; border: none;}
+form.searched:hover input, form.searched input:focus {display:block; border:none; border-bottom: 1px solid #ccc; width:100%;}
+form.searched:focus-within {width:100%;}
+.tui input[type=password] {border:1px solid #d6d6d6;float:left;font-size:16px;padding:3px 5px;border-radius: 0px;}
+/* ========================
+4.0 Cartier iFrame
+======================== */
+/* @media screen and (max-width: 768px) {
+      #iFrameBCPS {
+          width: 100%;
+border: 1px solid gray;
+      }
+}
+
+.video-container {
+  position:relative;
+  padding-bottom:56.25%;
+  padding-top:30px;
+  height:0;
+  width: 100%;
+  overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+*/
+/* ========================
+4.0 COLLECTION
+======================== */
+.wsa-cookielaw{ height:auto !important; white-space:normal !important; top: unset; bottom: 0; z-index: 999999;}
+
+ul.collection-pagination { list-style-type: none; margin: 0; padding: 0;}
+ul.collection-pagination li { display:inline-block;}
+ul.collection-pagination li.number a {display: block; height: 28px; line-height: 28px; text-align: center; width: 28px;}
+ul.collection-pagination li.number.active a { color: #fff !important; background: #444 !important;}
+
+/* ========================
+6.0 MESSAGES
+======================== */
+.foutmeldingen{clear:both;}
+.messages{width:100%;line-height:20px;font-weight:400;font-size:14px;}
+.messages ul{list-style: none outside none;color:#3B5998;background:#ECEFF5;border:1px solid #3B5998;box-shadow:none!important;font-weight:400;background-image:none!important;padding:8px 16px!important;}
+.gui-messages ul.gui-success{color:#609946;background:#EFF5ED;box-shadow:none!important;font-weight:400;border-radius:0;border-color:#609946;padding:8px 16px!important;}
+.messages ul.error{color:#DD3C10;background:#FCECE8;box-shadow:none!important;font-weight:400;border-radius:0;border-color:#DD3C10;padding:8px 16px!important;}
+
+gui-block-method-continue{ background-color: #f8f8f8 !important; border: 1px solid #cccccc !important; }
+.product-configure-custom-option > input, .product-configure-custom-option > select, textarea, .product-configure-custom-option-date-day, .product-configure-custom-option-date-month, .product-configure-custom-option-date-year, .product-configure-custom-option-time-hour, .product-configure-custom-option-time-minute { border: 1px solid #ddd; }
+.product-configure-custom-option{ float: left; margin-bottom: 10px; width: 100%; }
+.product-configure-custom-option-date-day, .product-configure-custom-option-date-month, .product-configure-custom-option-date-year{ margin-bottom:5px; }
+.product-configure-custom-option > select, .product-configure-custom-option > input{ float:right; width:50%; padding: 3px 0; border-color: #d4d4d4 !important; }
+
+/* ========================
+7.0 MEDIA QUERIES
+======================== */
+input, input:before, input:after {
+      -webkit-user-select: initial;
+      -khtml-user-select: initial;
+      -moz-user-select: initial;
+      -ms-user-select: initial;
+      user-select: initial;
+     } 
+
+@media (max-width: 767px) {
+	.payment-icons { margin-left: auto !important; margin-right: auto !important; text-align: center !important;}
+
+	.zoombox .images { max-width: 358px; }
+	.tabsPages { border-left:1px solid #eaeaea; border-right:1px solid #eaeaea; border-bottom:1px solid #eaeaea; }
+	.links{border-top:none; margin:25px 0; padding:0 10px;}
+	.slidetoggle, .slidetoggle .well{background: none repeat scroll 0 0 #fff !important;}
+
+	.links{ margin: 0 !important;}
+	.links ul { text-align: center;}
+	.links ul li{ display: inline-block; float: none !important; list-style: none outside none;  margin: 5px 25px !important; text-align: center;}
+}
+
+.gui-div-faq-questions .gui-content-subtitle strong{ padding-right:30px; }

@@ -1,0 +1,96 @@
+.gui-checkout .gui-progressbar{border:none;}
+.gui-checkout .gui-progressbar ul li a{border-top:1px solid #ccc;  border-bottom:1px solid #ccc;}
+.gui-checkout .gui-progressbar ul li.gui-done a{color:#fff !important;}
+.gui-checkout .gui-progressbar ul li.gui-done a span{background-position:-17px -7px !important;}
+.gui-cart .gui-progressbar{display:none;}
+.gui-checkout .gui-progressbar ul li.step-review{padding:0 !important;}
+.gui-checkout .gui-progressbar ul,
+.gui-checkout .gui-progressbar ul li{margin:0 !important;}
+
+/* blog */
+.gui-blog-article header h1{float:left; margin:20px 0px 10px 0px !important; width:100%;}
+.gui-blog-article h1, .gui-blog-article h2, .gui-blog-article h3, .gui-blog-article h4, .gui-blog-article h5, .gui-blog-article h6, .gui-blog-article ul, .gui-blog-article ol{margin-left:30px; margin-right:30px;}
+.gui-blog-article h2{font-size:16px;}
+.gui-blog-article h3{font-size:15px;}
+.gui-blog-article h4{font-size:14px;}
+.gui-blog-article h5{font-size:13px;}
+.gui-blog-article h6{font-size:12px;}
+.gui-blog-article ul{list-style:square;}
+.gui-blog-article ul, .gui-blog-article ol{clear:both; margin-left:40px;}
+.gui-blog .gui-blog-article footer{margin-top:30px; width:100%;}
+.gui-blog-article-more{font-size:100%;}
+.gui-blog .gui-blog-article-more a{background:#000; color:#fff; display:inline-block; float:right; font-weight:bold; padding:15px 0; text-align:center; text-transform:uppercase; width:200px;}
+.gui a.gui-button-large.gui-button-action,
+.gui-blog .gui-blog-article-more a:hover{color:#fff !important;}
+.gui-blog-commentlist header img{}
+.gui-image-50 img{max-width:none !important;}
+.gui-blog .gui-block{border:1px solid #eaeaea; padding:10px;}
+.gui-blog .gui-block .gui-block-content{padding:0;}
+.gui-blog .gui-block .gui-block-content .gui-block-linklist li{border-bottom:0; padding-left:15px;}
+.gui-blog .gui-blog-article{border:1px solid #eaeaea; margin-bottom:30px; overflow:hidden; padding:5px 0 0 0;}
+.gui-blog .gui-blog-article header{padding:0 30px; width:100%;}
+.gui-blog .gui-blog-article header img{margin-top:10px;}
+.gui-blog .gui-col2-right-col1 > .gui-page-title{/*height:50px; line-height:40px; margin:0;*/ margin-top:6px; position:absolute;}
+.gui-blog .gui-col2-right .gui-col2-right-col2{margin-top:50px;}
+.gui-blog .gui-block-title{background:none; border-bottom:none; text-transform:uppercase;}
+.gui-blog .gui-block-linklist li a{padding:0 0 10px 0;}
+.gui-blog .gui-blog-article-comments{margin-top:-5px !important;}
+.gui-blog .gui-blog-social{margin-left:30px; margin-bottom:15px; float:left;}
+.gui-blog-social-facebook, .gui-blog-social-twitter, .gui-blog-social-google, .gui-blog-social-addthis{margin-top:16px;}
+.gui-blogshort .gui-blog-article-image footer{padding:0;}
+.gui-blog .gui-blog-article-summary{margin-bottom:30px; margin-left:30px;}
+.gui-blog-article-summary > a{display:block; margin-bottom:30px; width:100%;}
+.gui-blog-article-content{padding-bottom:0;}
+.gui-form .gui-field > label,
+.gui-table thead tr th{font-size:11px;}
+.gui-blog-comment .gui-form{padding:0 15px;}
+.gui-buttons.gui-border{border-color:#eaeaea;}
+.gui-blog-commentlist article{border-color:#eaeaea;}
+.gui-blog .gui-col2-right-col1 > .gui-blog-article{margin-top:50px;}
+.gui-blog article{float:none;}
+@media (max-width:925px) {
+  .gui-blog .gui-blog-article-more a{margin-top:15px; width:100%;}
+}
+
+
+.gui-input.gui-focus, .gui-text.gui-focus{border:1px solid #999 !important}
+.gui-list{line-height:25px;}
+.gui-page-title, .gui h1, .gui h2, .gui h3, .gui h4, .gui h5, .gui h6{margin-top:20px;}
+
+/* checkout */
+.gui ul.gui-products li .gui-products-option{margin-top:0;}
+.gui-form .gui-radio input{margin-top:0;}
+.gui-checkout .gui-separator{background-color:#fff !important;}
+.gui-block-content{background:#fff;}
+.gui-table table{background:#fff;}
+.gui-form .gui-checkbox label, .gui-form .gui-radio label{word-break:normal;}
+.gui-progressbar{background:#fff; border:1px solid #ccc;}
+.gui-checkout .gui-progressbar ul li a{background-image:none !important;}
+.gui-checkout .gui-progressbar ul li.gui-active{background-image:none !important;}
+.gui a.gui-button-large.gui-button-action{width:140px;}
+.gui-scroll .gui-content-wysiwyg{display:block !important;}
+.gui-popover-title{padding:0 15px;}
+.gui-popover-title a{margin-top:8px;}
+.gui-popover-content{-webkit-border-radius:0; -moz-border-radius:0; border-radius:0;}
+.gui-right a.gui-button-action{margin-left:6px;}
+.gui-checkout .gui-progressbar.gui-fixed{margin:36px 0 0 -1px !important;}
+.gui-select select{font-size:12px;}
+@media (max-width:640px) {
+  .gui-checkout .gui-form .gui-item.gui-right.strict-submit{width:100% !important;}
+  .gui a.gui-button-large.gui-button-action{width:100%;}
+}
+
+
+.gui-account{margin-top:20px;}
+.gui-account .gui-page-title{margin-top:0;}
+
+.gui-div-sitemap-sitemap{margin-bottom:30px !important;}
+
+/* faq */
+.gui-faq .gui-content-wysiwyg{display:none;}
+.gui-faq .gui-content-subtitle{cursor:pointer;}
+
+.gui-block-subtitle, .gui-content-subtitle{ height:auto !important; min-height:30px !important; }
+.gui-progressbar{ background:#fff !important; }
+.gui-block-highlight > .gui-table thead.gui-block-title > tr > th{ background:#fff !important; }
+.gui-block.gui-block-highlight .gui-block-content{ background:#fff !important; }

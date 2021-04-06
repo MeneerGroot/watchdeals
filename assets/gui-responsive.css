@@ -1,0 +1,182 @@
+/*=========================================
+gui-responsive by SEOshop Group B.V.
+Version 1.0 - 20-01-2014
+=========================================*/
+
+
+
+
+
+.gui-hide{display:none!important;}
+.gui{font-family:inherit;margin:30px 0 0;}
+#gui-wrapper{vertical-align:top;width:100%;}
+.gui-col2-right .gui-col2-right-col2{display:none;}
+.gui-blog .gui-col2-right .gui-col2-right-col2{display:inherit;}
+.gui-blog footer{background:none;}
+.gui-block{border-radius:2px;border-color:#DDD;}
+.gui-block-title{background-image:none;border-radius:2px 2px 0 0;text-shadow:0 1px 0 rgba(255,255,255,0.5);}
+.gui-block-title{background-image:none;border-radius:2px 2px 0 0;text-shadow:0 1px 0 rgba(255,255,255,0.5);}
+.gui-page-title{margin-bottom:30px;}
+.gui-block-title strong{font-size:14px;}
+.gui-block-title strong, .gui-page-title, .gui a.gui-bold, .gui-block-subtitle, .gui-table thead tr th, .gui ul.gui-products li .gui-products-title a, .gui-form label, .gui-block-title.gui-dark strong, .gui-block-title.gui-dark strong a, .gui-content-subtitle, .gui-block-linklist li.gui-active a, .gui-blog-article h1, .gui-content-title { font-weight: 500; }
+.gui-block-subtitle{font-size:15px;line-height:25px;padding-bottom:1.5%;height:auto;}
+.gui-block-content{background-image:none;border-radius:2px;padding:10px;}
+.gui-form label{font-weight:400;line-height:32px;height:auto;}
+.gui-progressbar .gui-indicator,.gui-progressbar ul{left:0;width:100%;}
+.gui-progressbar ul li.gui-active a,.gui-progressbar ul li.gui-done a,.gui-progressbar ul li.gui-active a span,.gui-progressbar ul li.gui-done a span{font-weight:600;color:inherit;}
+.gui-progressbar a.gui-cart{display:none;}
+.gui-progressbar ul li{padding-left:0;margin-left:0;}
+.gui-progressbar{height:40px;}
+.gui-progressbar ul li a span{line-height:15px;margin-top:10px;}
+.gui-select{background-image:none;border-radius:2px;box-shadow:none;height:32px;}
+.gui-select .gui-value{height:32px;line-height:32px;}
+.gui-select .gui-handle{margin:3px 0;}
+.gui-list ul li{padding-left:0;background:none;}
+.gui-list ul li a span{color:inherit;}
+.gui-faq,.gui-login,.gui-password,.gui-register,.gui-review,.gui-sitemap{border:0;border-radius:0;padding:0;}
+.gui-form .gui-checkbox input,.gui-form .gui-radio input{margin:8px 0;}
+.gui-required{margin-top:2.5%;}
+.gui-buttons.gui-border{padding-top:2.5%;}
+.gui-left{float:none;}
+.gui-input{height:32px;}
+.gui-text textarea{max-width:100%;}
+.gui input,.gui select{background:transparent!important;}
+.gui-image.gui-image-40{width:44px;height:44px;}
+.gui-image.gui-image-50{width:54px;height:54px;}
+.gui-input,.gui-text{text-indent:10px;width:100%;max-width:100%;background-image:none;border-radius:2px;box-shadow:none;padding:0;}
+.gui-input input,.gui-select select{height:25px;max-width:100%;}
+.gui-input input[type=text]:focus,.gui-input input[type=password]:focus,.gui-input input[type=email]:focus,.gui-input textarea:focus{border:0;}
+.gui-right{float:none;width:100%;}
+.gui-buttons .gui-right{margin:0;}
+.gui-input,.gui-text{overflow:hidden;}
+.gui-table{border-radius:2px;right:0;width:auto;background-color:#FFF;border-color:#E5E5E5;border-width:1px;}
+.gui-buttons{height:inherit;margin-top:2.5%;}
+.gui a.gui-button-small,.gui a.gui-button-large{text-transform:uppercase;}
+.gui a.gui-button-small{border-radius:2px;background-image:none;font-weight:400;float:right;font-size:12px;box-shadow:none;height:32px;line-height:32px;padding:0 10px;}
+.gui-button-small.gui-button-action{left:0;width:100%;}
+.gui-button-large.gui-button-action{width:100%!important;margin:0!important;}
+.gui a.gui-button-small.gui-button-action,.gui a.gui-button-large{font-size:14px;height:48px;border-radius:2px;line-height:46px;width:100%;font-weight:400;background-image:none;border:1px!important;padding:0;}
+.gui-progressbar{border:1px solid #EEE;border-radius:2px;box-shadow:none;margin-bottom:20px;background-image:none;}
+.gui-progressbar a.gui-cart{border-radius:2px 0 0 2px;}
+.gui-progressbar a.gui-cart span{background:url(gui-progressbar-cart.png) -9px -3px no-repeat;}
+.gui-progressbar ul li{background-image:none;}
+.gui-progressbar ul li a{font-weight:400;}
+.gui-progressbar ul li a span{background-image:none;box-shadow:none;color:#333;font-size:10px;font-weight:400;margin-left:20%;margin-top:7px;border-color:#D5D5D5;}
+.gui-progressbar ul li.gui-active a,.gui-progressbar ul li.gui-done a{text-shadow:none;}
+.gui-progressbar ul li.gui-active a span,.gui-progressbar ul li.gui-done a span{color:#FFF;text-indent:0;border-color:#EEE;}
+.gui-progressbar ul li.gui-active a span,.gui-progressbar ul li.gui-done a span,.gui-progressbar ul li a span{border-color:#D5D5D5;}
+.gui-progressbar .gui-indicator .gui-progress,.gui-progressbar ul li:last-child{border-radius:0;}
+.gui-progressbar,.gui-table thead tr th,.gui-progressbar .gui-indicator .gui-progress{background:#F7F7F7;border-color:#E5E5E5;}
+.gui-table thead tr th{border-bottom:1px solid #e5e5e5;}
+.gui-faq,.gui-login,.gui-password,.gui-register,.gui-review,.gui-sitemap{border:0;border-radius:0;padding:0;}
+.gui-progressbar .gui-indicator,.gui-progressbar ul{left:0;width:100%;}
+.gui-progressbar ul li.gui-active a,.gui-progressbar ul li.gui-done a,.gui-progressbar ul li.gui-active a span,.gui-progressbar ul li.gui-done a span{font-weight:600;color:inherit;}
+.gui-progressbar a.gui-cart{display:none;}
+.gui-progressbar ul li{padding-left:0;margin-left:0;}
+.gui-progressbar{height:40px;}
+.gui-progressbar ul li a span{line-height:15px;margin-top:10px;}
+.gui-number{border-radius:2px;height:28px;box-shadow:none;border-color:#DDD;}
+.gui-number .gui-value{background:none;}
+.gui-number .gui-handle{margin-right:1px;border-color:#DDD;}
+.gui ul.gui-products{margin:0;}
+.gui ul.gui-products li .gui-products-title{text-overflow:ellipsis;}
+.gui ul.gui-products li .gui-products-info a{font-size:11px;}
+.gui ul.gui-products li .gui-products-price{font-size:12px;}
+.gui-cart .gui-div-cart-coupons .gui-block{border-radius:2px;}
+.gui-cart .gui-div-cart-coupons .gui-block-title,.gui-cart .gui-div-cart-coupons .gui-form label{display:none;}
+.gui-cart .gui-div-cart-coupons .gui-div-cart-shipping .gui-block-title,.gui-cart .gui-div-cart-coupons .gui-div-cart-shipping .gui-form label{display:inherit;}
+#gui-form-shipping .gui-form .gui-checkbox input,#gui-form-shipping .gui-form .gui-radio input{float:left;}
+.gui-checkout-method .gui-col2-equal-col1 .gui-left{float:left;}
+.gui-checkout-method .gui-col2-equal-col1 .gui-left a{margin-top:10px;}
+.gui-checkout-method .gui-col2-equal-col1 .gui-right{float:right;width:50%;}
+.gui-checkout-method .gui-col2-right .gui-col2-right-col1{width:100%;}
+.gui-checkout-method .gui-col2-equal .gui-col2-equal-col1,.gui-checkout-method .gui-col2-equal .gui-col2-equal-col2{background:#F9F9F9;border:1px solid #EEE;border-radius:2px;width:44.5%;float:left;padding:2%;}
+.gui-checkout-method .gui-col2-equal .gui-col2-equal-col2{float:right;margin-top:0;}
+#gui-form-cart .gui-table tbody tr:nth-last-child(1) td:nth-child(1) a{font-size:11px;}
+.gui-cart .gui-cart-sum{margin-bottom:5%;}
+.gui-table thead tr th{border-bottom:0;}
+.gui-cart-sum .gui-item .gui-price{margin-right:2.5%;}
+.gui-checkout-details .gui-col2-right .gui-col2-right-col1{width:100%;}
+.gui-checkout-details .gui-block-content .gui-col2-equal,.gui-checkout-details .gui-block-content #gui-block-company .gui-field{background:#F9F9F9;border:1px solid #EEE;border-radius:2px;padding:2%;}
+.gui-checkout-details .gui-block-content #gui-block-company .gui-col2-equal .gui-field{border:0;background:none;border-radius:0;padding:0;}
+.gui-checkout-details .gui-col2-equal .gui-col2-equal-col1,.gui-checkout-details .gui-col2-equal .gui-col2-equal-col2{margin:0;}
+.gui-checkout-details a.gui-button-link{margin-bottom:2.5%;line-height:inherit;height:auto;font-size:11px;}
+.gui-checkout-shipment .gui-col2-right .gui-col2-right-col1{width:100%;}
+.gui-checkout-shipment .gui-block-option{border-radius:2px;text-shadow:none;margin:0;padding:2.5%;}
+.gui-checkout-payment .gui-col2-right .gui-col2-right-col1{width:100%;}
+.gui-checkout-shipment a.gui-button-link,.gui-checkout-payment a.gui-button-link{margin-bottom:2.5%;line-height:inherit;height:auto;font-size:11px;}
+.gui-checkout-confirm .gui-col2-right .gui-col2-right-col2{display:inherit;}
+.gui-checkout-confirm .gui-col2-right .gui-col2-right-col2 .gui-block-subtitle a{font-size:11px;}
+.gui-checkout-confirm #gui-form .gui-block .gui-text #gui-form-comment{width:98%!important;}
+.gui-checkout-confirm .gui-block.gui-block-highlight .gui-block-title{text-shadow:none;border:0;}
+.gui-checkout-confirm #gui-form .gui-col2-equal .gui-col2-equal-col2{width:100%;}
+.gui-checkout-confirm .gui-block.gui-block-highlight .gui-block-content{background:none;}
+.gui-account .gui-block-linklist li a{font-size:12px;}
+.gui-account .gui-account-cart{display:none;}
+/* gui-blog */
+.gui-blog #comment .gui-block{margin-top:2.5%;background:#F9F9F9;border:1px solid #DCDCDC!important;width:100%;border-radius:2px;float:none;padding:2%;}
+.gui-blog-article-more{font-size:14px;}
+.gui-blog-article h1{font-family:inherit;}
+.gui-blog .gui-block-content{background:none;}
+.gui-blog #comment .gui-block .gui-block-title{border-bottom:1px solid #DCDCDC;margin-bottom:10px;}
+.gui-blog #comment .gui-col2-equal .gui-col2-equal-col1,.gui-blog #comment .gui-col2-equal .gui-col2-equal-col2{border:0;width:100%!important;margin:0;padding:0;}
+.gui-blog #comment .gui-form .gui-field-info{height:0;line-height:28px;font-size:11px;float:right;padding:8px 0 0;}
+
+@media (max-width: 480px) { 
+  .gui-table .gui-button-small { display: none; }
+  .gui-table tbody tr td{width:auto!important;padding-right:7px;padding-left:8px;}
+  #gui-form-cart .gui-table tbody tr:nth-last-child(1) td:nth-child(1) a{position:absolute;font-size:11px;left:10px;}
+  .wrapper{width:100%!important;}
+  .gui-progressbar .gui-indicator{left:20px;}
+  .gui-progressbar ul li a{text-indent:-9999px;}
+  .gui-col3-equal-col1.gui-div-cart-related,.gui-cart .gui-div-cart-shipping{display:none;}
+  .gui-col3-equal .gui-col3-equal-col2.gui-div-cart-coupons{float:none;width:100%;}
+  .gui-col3-equal .gui-col3-equal-col3{width:100%;}
+  .gui-checkout-method .gui-col2-equal .gui-col2-equal-col1,.gui-checkout-method .gui-col2-equal .gui-col2-equal-col2{width:95.7%;}
+  .gui-checkout-method .gui-col2-equal .gui-col2-equal-col1{margin-top:16px;}
+  .gui-table table thead tr th:nth-child(5),.gui-table table tbody tr td:nth-child(5){display:none;}
+  .gui-checkout-details .gui-col2-equal .gui-col2-equal-col1,.gui-checkout-details .gui-col2-equal .gui-col2-equal-col2{width:100%;float:none;}
+  .gui-checkout-confirm .gui-col2-right .gui-col2-right-col1{width:100%;}
+  .gui-checkout-confirm .gui-col2-right .gui-col2-right-col2{display:none;}
+  .gui-checkout .gui-form .gui-checkbox label{white-space:normal;width:90%;padding:0;}
+  .gui-thankyou .gui-col2-big .gui-col2-big-col2,.gui-account .gui-col2-left .gui-col2-left-col1,.gui-account .gui-col2-left .gui-col2-left-col2{width:100%;}
+  .gui-cart span.valueAmount{display:block;text-align:center;}
+  .gui-cart .gui-table a.gui-button-small{visibility:hidden;}
+  .gui-cart .gui-table tbody tr td:first-child{padding:0;}
+  .gui-cart .gui-table tbody tr td:first-child .gui-image{display:none;}
+  .gui-checkout-confirm #gui-form .gui-block .gui-text #gui-form-comment{width:96%!important;}
+}
+@media (max-width: 767px) { 
+  .wrapper{width:100%!important;}
+  .gui-progressbar ul li a{text-indent:-9999px;}
+  .gui-thankyou .gui-col2-big .gui-col2-big-col2{width:100%;}
+}
+@media (min-width: 768px) and (max-width: 979px) { 
+  .wrapper { width:100%!important; }
+}
+
+/* Border-radius */
+.gui a.gui-button-small.gui-button-action, .gui a.gui-button-large, .gui a.gui-button-small, .gui-input, .gui-text, .gui-select, .gui-block, .gui-progressbar, .gui-image, .gui-table, .gui-checkout-method .gui-col2-equal .gui-col2-equal-col1, .gui-checkout-method .gui-col2-equal .gui-col2-equal-col2, .gui-number, .gui-number .gui-handle a.gui-down, .gui-number .gui-handle a.gui-up { border-radius: 0px; }
+
+/* Gui colors */
+.gui-progressbar .gui-indicator .gui-progress,.gui-progressbar,.gui-table thead tr th{background:#F7F7F7!important;border-color:#E5E5E5!important;}
+.gui-progressbar ul li.gui-active a span,.gui-progressbar ul li.gui-done a span,.gui-progressbar ul li a span{border-color:#D5D5D5!important;}
+.gui-table thead tr th{border-bottom:1px solid #e5e5e5!important;}
+.gui-table{background-color:#FFF!important;border-color:#E5E5E5!important;}
+
+/* Gui */
+.gui-block-title strong,.gui-page-title,.gui a.gui-bold,.gui-block-subtitle,.gui-table thead tr th,.gui ul.gui-products li .gui-products-title a,.gui-form label,.gui-block-title.gui-dark strong,.gui-block-title.gui-dark strong a,.gui-content-subtitle,.gui-block-linklist li.gui-active a,.gui-blog-article h1,.gui-content-title{font-weight:600;}
+.gui a.gui-button-small{background-image:none;font-size:12px;}
+.gui-progressbar ul li{padding-left:0;margin-left:0;}
+
+/* Demobar */
+.wsa-demobar{width:100%;position:fixed;top:0;left:0;text-align:center;color:#FFF;font-size:14px;z-index:1000;height:auto!important;background:#414141!important;box-shadow:none!important;border-bottom:0!important;line-height:42px!important;text-shadow:none!important;}
+.wsa-demobar a.link{display:inline!important;float:none!important;width:auto!important;height:auto!important;text-indent:0!important;background:none!important;}
+
+/* Messages */
+.messages{width:100%;margin-top:30px;line-height:20px;font-weight:400;font-size:12px;}
+.messages ul{color:#3B5998;background:#ECEFF5;border:1px solid #3B5998;box-shadow:none!important;font-weight:400;background-image:none!important;padding:8px 16px!important;}
+.gui-messages ul.gui-success{color:#609946;background:#EFF5ED;box-shadow:none!important;font-weight:400;border-radius:0;border-color:#609946;padding:8px 16px!important;}
+.messages ul.error{color:#DD3C10;background:#FCECE8;box-shadow:none!important;font-weight:400;border-radius:0;border-color:#DD3C10;padding:8px 16px!important;}
+
+.gui-blog-article h1 { float: left; width: 100%; margin: 20px 0px 10px 0px !important; }
