@@ -1,0 +1,18 @@
+{# snippets/datalayer-cart.rain #}
+<script>
+  dataLayer.push({
+    event: 'checkout',
+    ecommerce: {
+      checkout: {
+        actionField: {'step': 1, option: 'cart'},    
+        products: [ {% for product in page.cart.products %} {
+          id: '{{ product.sku }}',
+          name: '{{ product.url | replace ({'.html':''})}}',
+          price: {{ product.price.price_incl | number_format(2, '.', '') }},
+          brand: '{{ product.brand.title }}',
+          quantity: {{ product.quantity }}
+          }{% if not loop.last %},{% endif %} {% endfor %} ]
+      }
+    }
+  });
+</script>

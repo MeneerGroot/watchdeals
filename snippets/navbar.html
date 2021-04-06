@@ -1,0 +1,62 @@
+{# snippets/navbar.rain #}
+<nav class="sc-center" id="nav-bar">
+  <ul class="list-unstyled">
+    
+    {# CATEGORIES #}
+    {% for category in shop.categories %}
+      <li>
+        <a href="{{ category.url | url }}" >{{ category.title }}</a>
+        
+        {% if category.subs %}
+        	<div id="row">
+            	<div>
+            {% for batch in category.subs|batch(6) %}
+              <div class="col-sm-3 col-xs-12 sub">
+                {% for category in batch %}
+                  <a class="col-xs-12" href="{{ category.url | url }}">{{ category.title }}</a>
+                {% endfor %}
+              </div>
+            {% endfor %}
+            
+            {# PRICE FILTER #}
+            {% if category.id == '8920570' %}
+              <div class="col-sm-3 col-xs-12 sub">                       
+                {% set priceUrl = category.url ~ '?min=0&max=2500' %}
+                  <a class="col-xs-12" href="{{ priceUrl | url }}">{{ 'up to' | t }}{{' €2.500'}}</a>
+                {% set priceUrl = category.url ~ '?min=2500&max=5000' %}
+                  <a class="col-xs-12" href="{{ priceUrl | url }}">{{ '€2.500 - €5.000'}}</a>
+                {% set priceUrl = category.url ~ '?min=5000&max=7500' %}
+                  <a class="col-xs-12" href="{{ priceUrl | url }}">{{ '€5.000 - €7.500'}}</a>
+                {% set priceUrl = category.url ~ '?min=7500&max=10000' %}
+                  <a class="col-xs-12" href="{{ priceUrl | url }}">{{ '€7.500 - €10.000'}}</a>
+                {% set priceUrl = category.url ~ '?min=10000&max=1000000' %}
+                  <a class="col-xs-12" href="{{ priceUrl | url }}">{{ '€10.000+'}}</a>
+              </div>
+            {% endif %}
+            </div>  
+        	</div>
+        {% endif %}
+      </li>
+    {% endfor %}
+    
+    {# BRANDS #}
+    <li>
+      <a href="/{{ shop.language }}/brands" >{{ 'Brands' | t }}</a>
+      {% if shop.brands %}
+      	<div class="row">
+          <div>
+            {% for batch in shop.brands|batch(6) %}
+              <div class="col-sm-3 col-xs-12 sub">
+                {% for brand in batch %}
+                  <a class="col-xs-12" href="{{ brand.url | url }}">{{ brand.title }}</a>
+                {% endfor %}
+              </div>
+            {% endfor %}
+          </div>
+    		</div>
+      {% endif %}
+      
+    </li>
+
+  </ul>
+</nav>

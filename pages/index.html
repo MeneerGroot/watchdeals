@@ -1,0 +1,21 @@
+{# ROLEX BANNER #}
+{% include 'snippets/home-banner.rain' %}
+{# / ROLEX BANNER #}
+
+{# RATING #}
+{% include 'snippets/trust.rain' %}
+{# / RATING #}
+
+{# NEWEST PRODUCTS #}
+<section class="row">
+  
+  <h2 class="sc-center row">{{ 'New Arrivals pre-owned & vintage watches' | t}}</h2>
+  
+  <div class="sc-flex-row">
+    {% for product in newest | limit(8) %} 
+      {% include 'snippets/products.rain' with {'products': newest, 'type': 'newest', 'loopindex': 0} %}
+    {% endfor %}
+  </div>
+  
+</section>
+{# / NEWEST PRODUCTS #}

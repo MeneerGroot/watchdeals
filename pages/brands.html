@@ -1,0 +1,151 @@
+{# ALPHABETICALLY BRANDS #}
+<section class="row" id="brands">
+  
+	<h1 class="sc-center">{{ 'All pre-owned watch brands' | t }} | {{ shop.name }}</h1>
+  
+  <div class="inner-product-sidebar row">
+    
+    <h2 class="sc-center">{{ 'Ease your search' | t }}</h2>
+    <p class="p1">
+			{{ 'Easily browse by the finest watch brands to find that one timepiece you have been looking for' | t }}.
+    </p>
+    
+  </div>
+  
+  <div class="inner-product-sidebar row">
+    
+    <h2 class="col-xs-12"> {{ 'Watch brands in alphabetical order' | t }}</h2>
+    
+    <div class="col-sm-3 mar-12">
+      
+      <strong class="col-xs-12 mar-12">A</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'A' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">B</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'B' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">C</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'C' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+    <div class="col-sm-3 mar-12">
+
+      <strong class="col-xs-12 mar-12">E</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'E' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">H</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'H' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">I</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'I' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">J</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'J' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">L</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'L' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">M</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'M' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+    <div class="col-sm-3 mar-12">
+
+      <strong class="col-xs-12 mar-12">O</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'O' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">P</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'P' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">R</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'R' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+    <div class="col-sm-3 mar-12">
+
+      <strong class="col-xs-12 mar-12">T</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'T' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">U</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'U' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">V</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'V' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <strong class="col-xs-12 mar-12">Z</strong>
+      {% for brand in brands if brand.count >= 1 %}
+        {% if brand.title | first | upper == 'Z' %}
+          <a class="col-xs-12" href="/{{ brand.url }}" title="{{ brand.title }}">{{ brand.title }}</a>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+    
+  </div>
+  
+</section>
+
+{# / ALPHABETICALLY BRANDS #}

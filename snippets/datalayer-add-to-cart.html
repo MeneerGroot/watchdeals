@@ -1,0 +1,22 @@
+{# snippets/datalayer-add-to-cart.rain #}
+<script>
+function addToCart(sku, name, price, brand, quantity) {  
+   
+  dataLayer.push({
+    event: 'addToCart',
+      ecommerce: {
+        currencyCode: '{{ shop.currency2.code }}',
+        add: {                               
+          products: [{   
+            id: sku,
+            name: name,
+            price: price,
+            brand: brand,
+            quantity: 1,
+            metric1: price
+         }]
+      }
+    }
+  });
+}
+</script>

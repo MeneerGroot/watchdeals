@@ -1,0 +1,70 @@
+{# snippets/featured-watches.rain #}
+<section class="row sc-flex-row">
+  <h2 class="sc-center row">{{ 'Featured watches' | t }}</h2>
+  <a itemscope itemtype="http://schema.org/ProductModel" itemprop="targetUrl" class="col-md-3 col-xs-6 sc-flex-column" href="{{ theme.featured_url_1 | url }}" title="{{ theme.featured_title_1 }}">
+    <span style="background:#8a8a8a;display:inline-block;">
+      <meta itemprop="image" content="{{ 'featured-1.jpg' | url_asset }}"/>
+    	<img style="opacity:.95;max-height:320px;width:100%;object-fit:cover;" src="https://cdn.webshopapp.com/shops/95054/themes/100109/assets/lazyload.jpg" data-src="{{ 'featured-1.jpg' | url_asset }}" alt="{{ theme.featured_title_1 }}">
+    </span>
+    
+    <span itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+      <meta itemprop="price" content="{{ theme.featured_price_1 | number_format(2, '.', '') }}" />
+    	<meta itemprop="priceCurrency" content="{{ shop.currency | upper }}" />
+      <meta itemprop="url" content="{{ theme.featured_url_1 | url }}" />
+    </span>
+    
+    <span itemprop="name" class="col-xs-12 sc-center">{{ theme.featured_title_1 }}</span>
+    <span class="col-xs-12 sc-center">{{ theme.featured_price_1 | money }}</span>
+  </a>
+
+  <a itemscope itemtype="http://schema.org/ProductModel" itemprop="targetUrl" class="col-md-3 col-xs-6 sc-flex-column" href="{{ theme.featured_url_2 | url }}" title="{{ theme.featured_title_2 }}">
+    <span style="background:#8a8a8a;display:inline-block;">
+      <meta itemprop="name" content="{{ theme.featured_title_2 }}" />
+      <meta itemprop="image" content="{{ 'featured-2.jpg' | url_asset }}"/>
+    	<img style="opacity:.95;max-height:320px;width:100%;object-fit:cover;" src="https://cdn.webshopapp.com/shops/95054/themes/100109/assets/lazyload.jpg" data-src="{{ 'featured-2.jpg' | url_asset }}" alt="{{ theme.featured_title_2 }}">
+    </span>
+    
+    <span itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+     	<meta itemprop="price" content="{{ theme.featured_price_2 | number_format(2, '.', '') }}" />
+    	<meta itemprop="priceCurrency" content="{{ shop.currency | upper }}" />
+      <meta itemprop="url" content="{{ theme.featured_url_2 | url }}" />
+    </span>
+    
+    <span itemprop="name" class="col-xs-12 sc-center">{{ theme.featured_title_2 }}</span>
+    <span class="col-xs-12 sc-center">{{ theme.featured_price_2 | money }}</span>
+  </a>
+
+  <a itemscope itemtype="http://schema.org/ProductModel" itemprop="targetUrl" class="col-md-3 col-xs-6 sc-flex-column" href="{{ theme.featured_url_3 | url }}" title="{{ theme.featured_title_3 }}">
+    <span style="background:#8a8a8a;display:inline-block;">
+      <meta itemprop="name" content="{{ theme.featured_title_3 }}" />
+    <meta itemprop="image" content="{{ 'featured-3.jpg' | url_asset }}"/>
+    <img style="opacity:.95;max-height:320px;width:100%;object-fit:cover;" src="https://cdn.webshopapp.com/shops/95054/themes/100109/assets/lazyload.jpg" data-src="{{ 'featured-3.jpg' | url_asset }}" alt="{{ theme.featured_title_3 }}">
+    </span>
+    
+    <span itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+      <meta itemprop="price" content="{{ theme.featured_price_3 | number_format(2, '.', '') }}" />
+    	<meta itemprop="priceCurrency" content="{{ shop.currency | upper }}" />
+      <meta itemprop="url" content="{{ theme.featured_url_3 | url }}" />
+    </span>
+    
+    <span itemprop="name" class="col-xs-12 sc-center">{{ theme.featured_title_3 }}</span>
+    <span class="col-xs-12 sc-center">{{ theme.featured_price_3 | money }}</span>
+  </a>
+
+  <a itemscope itemtype="http://schema.org/ProductModel" itemprop="targetUrl" class="col-md-3 col-xs-6 sc-flex-column" href="{{ theme.featured_url_4 | url }}" title="{{ theme.featured_title_4 }}">
+    <span style="background:#000;display:inline-block;">
+      <meta itemprop="name" content="{{ theme.featured_title_4 }}" />
+      <meta itemprop="image" content="{{ 'featured-4.jpg' | url_asset }}"/>
+    	<img style="opacity:.95;max-height:320px;width:100%;object-fit:cover;" src="https://cdn.webshopapp.com/shops/95054/themes/100109/assets/lazyload.jpg" data-src="{{ 'featured-4.jpg' | url_asset }}" alt="{{ theme.featured_title_4 }}">
+    </span>
+    
+    <span itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+     	<meta itemprop="price" content="{{ theme.featured_price_4 | number_format(2, '.', '') }}" />
+    	<meta itemprop="priceCurrency" content="{{ shop.currency | upper }}" />
+      <meta itemprop="url" content="{{ theme.featured_url_4 | url }}" />
+    </span>
+    
+    <span itemprop="name" class="col-xs-12 sc-center">{{ theme.featured_title_4 }}</span>
+    <span class="col-xs-12 sc-center">{{ theme.featured_price_4 | money }}</span>
+  </a>
+</section>

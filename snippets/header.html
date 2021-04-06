@@ -1,0 +1,58 @@
+<header>
+  
+    {% include 'snippets/secondary-menu.rain' %}
+    
+    <nav id="menu" class="col-xs-12" >
+      
+      <div id="inner-menu">
+        
+        <button onclick="showMenu()" style="padding:11px 6px; text-align:center; outline:none;font-size:2.2rem;" class="col-xs-2 visible-xs" type="button">☰</button>
+  
+        {# SEARCH #}     
+        {% include 'snippets/form-search.rain' %}
+        {# / SEARCH #}  
+  
+        {# LOGO #}
+        <a class="col-xs-8 col-sm-6" href="/{{ shop.language }}/"><img id="logo" src="{{ 'logo-watchdeals.svg' | url_asset }}" alt="{{ 'Logo' | t }}"></a>
+        {# / LOGO #}
+  
+        {% if not request.device.mobile %}
+        <div class="col-sm-2">
+        </div>
+        {% endif %}
+        
+        {# CART #}
+        {% include 'snippets/shopping-cart.rain' %}
+        {# / CART #}
+  
+        {# NAVBAR #}
+        {% include 'snippets/navbar.rain' %}
+        {# /NAVBAR #}
+        
+      </div>
+    </nav>
+  </header>
+  
+  <script>
+  function showMenu(){
+    var element = document.getElementById('nav-bar');
+    element.classList.toggle("visible");
+  }
+    
+  window.onscroll = function() {fixedNav()};
+    {% if request.device.mobile %}
+          var navbar = document.getElementById("menu");
+    {% else %}
+        var navbar = document.getElementById("nav-bar");
+    {% endif %}
+    
+  var sticky = 1;
+  
+  function fixedNav() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+  </script>

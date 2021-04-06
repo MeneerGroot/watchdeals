@@ -1,0 +1,38 @@
+{# ALL DISPLAY VARIATIONS #}
+{% if type == 'grid' or type == 'newest' or type == 'list' or type == 'related' %}
+	
+  <a class="col-sm-3 sc-center col-xs-12 sc-flex-column sc-result" 
+     href="{{ product.url | url }}" 
+     title="{{ product.fulltitle }}" 
+     onclick="productClick('{{ product.sku }}', '{{ product.url | replace ({'.html':''}) }}', '{{ product.price.price_incl }}', '{{ product.brand.title }}', '{{ loop.index }}', '{{ product.url | url }}')">
+
+    <span class="sc-prod{% if not product.available %} sold-label{% endif %}">">
+   
+      {% if request.device.mobile %}
+        <img class="col-xs-5" 
+             src="{{ 'lazyload.jpg' | url_asset }}" 
+             data-src="{{ product.image | url_image('120x120x2', product.fulltitle) }}"
+             alt="{{ product.title }}"
+             >
+      {% else %}
+        <img src="{{ 'lazyload.jpg' | url_asset }}" 
+             data-src="{{ product.image | url_image('420x420x2', product.fulltitle) }}"
+             alt="{{ product.title }}"
+             >
+      {% endif %}
+
+      <span id="brand" class="col-xs-7 col-sm-12 {% if not request.device.mobile %}sc-center{% endif %}">{{ product.brand.title }}</span>
+      <h3 class="col-xs-7 col-sm-12 {% if not request.device.mobile %}sc-center{% endif %}">{{ product.title }}</h3>
+      <span class="col-xs-7 col-sm-12 {% if not request.device.mobile %}sc-center{% endif %}" id="price">
+        {% if product.available %}	       
+					{{ shop.currency2.symbol }} {{ product.price.price | money_without_currency }}
+				{% else %}
+					 Prijs op aanvraag
+			  {% endif %}
+      </span>
+			<span>{{ 'View' | t }}</span>
+      
+  	</span>
+	</a>
+{% endif %}
+{# / ALL DISPLAY VARIATIONS #}

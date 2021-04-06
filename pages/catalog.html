@@ -1,0 +1,35 @@
+{% if catalog.image %}
+	{% if request.device.mobile %}
+		<img class="col-xs-12 nopadding" src="{{ catalog.image | url_image('480x120x2', catalog.title) }}" alt="{{collection.title}} | {{shop.title}}">
+  {% else %}
+  	<img class="col-xs-12 nopadding" src="{{ catalog.image | url_image('1200x300x2', catalog.title) }}" alt="{{collection.title}} | {{shop.title}}">
+	{% endif%}
+{% endif %}
+
+<h1 class="sc-center col-xs-12">{{ catalog.title }}</h1>
+
+{# CONTENT #}
+<section class="row">
+  
+  {% if catalog.content %}
+    {{ catalog.content | raw }}
+  {% endif %}
+	
+	{# Store details #}
+  <hr>
+  {% for category in catalog.categories %}
+    <div class="col-xs-12 col-sm-6 col-md-4 mar-12">
+      <h3>{{ category.title }}</h3>
+      <p>{{ category.description | raw }}</p>
+      <a href="{{ category.url | url }}" title="{{ category.title }}"><u>{{ 'Store details' | t }}</u></a>
+    </div>
+  {% endfor %}
+  <hr>
+  {# / Stored details #}
+  
+</section>
+{# / CONTENT #}
+
+{# CTA'S #}
+{% include 'snippets/cta.rain' %}
+{# / CTA'S #}

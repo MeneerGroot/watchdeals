@@ -1,0 +1,15 @@
+{# snippets/home-banner.rain #}
+<a class="col-xs-12" href="{{ shop.categories.8094779.url | url }}" id="sc-rolex" title="{{ 'The finest second-hand watches at WatchDeals' | t }}">
+  
+  {% if request.device.mobile %}
+  	<img src="{{ 'banner-pre-owned-mobiel.jpg' | url_asset }}"  alt="{{ 'The finest second-hand watches at WatchDeals' | t }}">
+  {% else %}
+    <img src="{{ 'home-banner.jpg' | url_asset }}"  alt="{{ 'The finest second-hand watches at WatchDeals' | t }}">
+  {% endif %}
+  
+  <div class="col-xs-12 col-sm-4">
+    <h1>{{ 'Find your perfect second hand Watch' | t }}</h1>
+    <span>{{ 'Explore the collection' | t }}</span>
+  </div>
+  
+</a>

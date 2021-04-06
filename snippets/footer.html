@@ -1,0 +1,58 @@
+<footer>
+    <div id="inner-footer">
+  {# FOOTER #}    
+        
+    {# COLUMN 1 #}
+    <div class="col-xs-12 col-md-3">
+        
+      <h3>{{ 'Service' | t }}</h3>
+      
+      <a href="/{{ shop.language }}/{{ 'sell-your-watch' | t}}/" title="{{ 'Sell Your Watch' | t }}">{{ 'Sell Your Watch' | t }}</a>
+      <a href="/{{ shop.language }}/sitemap/" title="sitemap">{{ 'Sitemap' | t }}</a>
+      
+    </div>
+    {# / COLUMN 1 #}
+  
+    {# COLUMN 2 #}
+    <div class="col-xs-12 col-md-3">
+      
+      <h3>{{ 'Informatie' | t }}</h3>
+      
+      <a href="/{{ shop.language }}/service/about/" title="{{ 'About us' | t }}">{{ 'About us' | t }}</a>
+      <a href="/{{ shop.language }}/service/general-terms-conditions/" title="{{ 'Algemene Voorwaarden' | t }}">{{ 'Algemene Voorwaarden' | t }}</a>
+      <a href="/{{ shop.language }}/service/privacy-policy/" title="{{ 'Privacy Policy' | t }}">{{ 'Privacy Policy' | t }}</a>
+      
+    </div>
+    {# / COLUMN 2 #}      
+    
+    {# COLUMN 3 #}
+  
+    <div class="col-xs-12 col-md-4">
+  
+      <h3>{{ 'Newsletter' | t }}</h3>
+      
+      <form class="inline" id="wd-nieuwsbrief">
+        <input class="text" type="email" name="email" placeholder="{{ 'Email address' | t }}..." data-required="true">
+        <button type="submit">{{ 'Subscribe' | t }}</button>
+      </form>
+  
+    </div>
+  
+    {# / COLUMN 3 #}
+    
+    {# COLUMN 4 #}
+    <div class="col-xs-12 col-md-2">    
+            
+      <h3>{{ 'Payment methods' | t }}</h3>
+  
+      {% for payment in shop.payments %}
+        <a class="payment-icons {{ payment.icon | trim('.png') }}"></a>
+      {% endfor %}               
+         
+    </div>
+    {# / COLUMN 4 #}
+      
+    </div>
+  </footer>
+  
+  <script>var searchUrl = '{{ 'search' | url }}';</script>

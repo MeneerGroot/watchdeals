@@ -1,0 +1,110 @@
+{# snippets/sidebar.rain #}
+<aside class="col-md-3 col-xs-12" id="sidebar" {% if request.device.mobile %}style="display:none"{% endif %}>
+  <div class="col-xs-12">
+    
+    <h3 class="col-xs-10">{{ 'Refine your selection' | t }}</h3>
+    <a rel="nofollow" id="close-filter" class="col-xs-2 sc-right" onclick="showFilters()">✕</a>
+    
+    <form action="{{ collection.internal.url | url }}" method="get" id="filter_form">
+      <input type="hidden" name="mode" value="{{ collection.filters.mode }}" id="filter_form_mode" />
+      <input type="hidden" name="limit" value="{{ collection.filters.limit }}" id="filter_form_limit" />
+      <input type="hidden" name="sort" value="{{ collection.filters.sort }}" id="filter_form_sort" />
+      <input type="hidden" name="max" value="{{ collection.filters.max }}" id="filter_form_max" />
+      <input type="hidden" name="min" value="{{ collection.filters.min }}" id="filter_form_min" />
+
+      <div class="col-xs-12">
+     
+        <h3 class="sub-header">{{ 'Price' | t }}filter</h3>
+        <div class="sidebar-filter-slider">
+          <div id="collection-filter-price"></div>
+        </div>
+        <div class="col-xs-6 nopadding">{{ 'Min' | t }}: {{ shop.currency2.symbol }} {{ collection.filters.min | number_format(0, '', '')}}</div>
+        <div class="col-xs-6 nopadding sc-right">{{ 'Max' | t }}: {{ shop.currency2.symbol }} {{ collection.filters.max | number_format(0, '', '')}}</div>
+        
+      </div>
+
+      {# SORT BY #}
+      <div class="col-xs-12">
+        
+        <h3 class="sub-header">{{ 'Sort by' | t }}</h3>
+        <select name="sort" onchange="$('#formSortModeLimit').submit();">
+          {% for sort in collection.sorts %}
+            <option value="{{ sort.id }}"{% if collection.filters.sort == sort.id %} selected="selected"{% endif %}>{{ sort.title }}</option>
+          {% endfor %}
+        </select>
+
+        {% if collection.brands and collection.brands|length > 2 %}
+        <select name="brand">
+          {% for brand in collection.brands %}
+          <option value="{{ brand.id }}"{% if brand.id == collection.filters.brand %} selected="selected"{% endif %}>{{ brand.title }}</option>
+          {% endfor %}
+        </select>
+        {% endif %}
+        
+      </div>
+      {# / SORT BY #}
+
+      {# CUSTOM FILTERS #}
+      {% if collection.filters.custom  %}       
+        <div class="col-xs-12">
+          
+          <h3 class="sub-header">{{ 'Filter by' | t }}</h3>
+          {% for filter in collection.filters.custom %}
+          
+            <a class="col-xs-12 pad-12 filter-link" href="#" onclick="return false" rel="no-follow" data-toggle="collapse" data-target="#inner-filter-{{ filter.title | replace(' ', '-') }}" aria-expanded="false" aria-controls="inner-filter-{{ filter.title | replace(' ', '-') }}">{{ filter.title }}</a>
+            <div id="inner-filter-{{ filter.title | replace(' ', '-') }}" class="collapse row">       	
+              {% for value in filter.values %}
+                <div class="col-xs-12">
+                <input class="col-xs-1" id="filter_{{ value.id }}" type="checkbox" name="filter[]" value="{{ value.id }}" {% if value.active %} checked="checked"{% endif %} />
+                <label class="col-xs-11" for="filter_{{ value.id }}">{{ value.title }}{% if not value.active and value.has_count %} <small>({{ value.count }})</small>{% endif %}	</label>
+              </div>
+              {% endfor %}
+            </div>
+          
+          {% endfor %}
+        </div>
+      
+      {% endif %}
+      {# / CUSTOM FILTERS #}
+
+      <button class="col-xs-12 pad-12 sc-center" type="submit" id="filter-button">{{ 'Apply filters' | t }}</button>
+      
+    </form>
+  </div>
+  
+
+</aside>
+
+<script type="text/javascript">
+  $(function(){
+    
+    $("#collection-filter-price").slider(
+    {
+      range: true,
+      min: {{ collection.price_min }},
+      max: {{ collection.price_max }},
+      values: [{{ collection.filters.min }}, {{ collection.filters.max }}],
+      step: 1,
+      slide: function( event, ui)
+      {
+        $('.sidebar-filter-range .min span').html(ui.values[0]);
+        $('.sidebar-filter-range .max span').html(ui.values[1]);
+        
+        $('#filter_form_min').val(ui.values[0]);
+        $('#filter_form_max').val(ui.values[1]);
+      },
+      stop: function(event, ui)
+      {
+        $('#filter_form').submit();
+      }
+    });
+    
+  });
+  
+  function removeFilter(removed_id) {
+    let y = "filter_";
+    let z = y.concat(removed_id);
+    document.getElementById(z).checked = false;
+    document.getElementById('filter_form').submit();
+  }
+</script>

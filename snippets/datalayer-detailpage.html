@@ -1,0 +1,17 @@
+{# snippets/datalayer-detailpage.rain #}
+<script>
+{# Measure a view of product details. This example assumes the detail view occurs on pageload #}
+window.dataLayer.push({
+  event: 'viewProductDetail',
+  ecommerce: {
+    detail: {
+      products: [{
+        id: '{{ product.sku }}',
+        name: '{{ product.url | replace ({'.html':''})}}', {# strip .html from name (url) #}
+        price: {{ product.price.price_incl | number_format(2, '.', '') }},
+        brand: '{{ product.brand.title }}'
+       }]
+     }
+   }
+});
+</script>

@@ -1,0 +1,6 @@
+{# snippets/shopping-cart.rain #}
+
+  <a class="col-xs-2 col-sm-1" id="cart" href="{{ 'cart' | url }}" title="{{ 'Cart' | t }}">   
+  	<i class="fa fa-shopping-bag"></i>
+    <span>{{ page.cart.products | length }}</span>            
+  </a>

@@ -1,0 +1,36 @@
+{# snippets/navbar-bottom.rain #}
+<div class="col-xs-12 pad-12" id="menu-bottom">
+  
+  <a class="col-xs-3 sc-center" href="/{{ shop.language }}/{{ 'sell-your-watch' | t }}" title="Watchdeals {{ 'sell your watch' }}">
+    <i class="far fa-money-bill-alt"></i> <br> {{ 'sell now' | t }}
+  </a>
+  
+  {% if template == 'pages/product.rain' %}
+    <a class="cartbutton col-xs-6" id="sale-form" href="javascript:;" onclick="$('#product_configure_form').submit();" title="{{ 'Order now' | t }}">
+      {{ 'Order now' | t }}
+    </a>
+  {% endif %}
+
+  {% if template == 'pages/collection.rain' %}
+    <a class="col-xs-3 sc-center" href="#" onclick="showFilters()" rel="nofollow">
+      <i class="fas fa-sliders-h"></i> <br> {{ 'filters' | t }}
+    </a>
+  {% endif %}
+
+  {% if template == 'pages/collection.rain' or template == 'pages/index.rain' %}
+    <a class="col-xs-3 sc-center" href="#" onclick="showSearch()" rel="nofollow">
+      <i class="fas fa-search"></i> <br> {{ 'search' | t }}
+    </a>
+  {% endif %}
+  
+  <a class="col-xs-3 sc-center" href="#" onclick="showShare()" rel="nofollow">
+    <i class="fas fa-share-alt"></i> <br> {{ 'share' | t }}
+  </a>
+  
+  {% if template == 'pages/index.rain' %}
+    <a class="col-xs-3 sc-center" href="tel:+3120201112">
+      <i class="fas fa-phone"></i> <br> {{ 'call' | t }}
+    </a> 
+  {% endif %}
+  
+</div>

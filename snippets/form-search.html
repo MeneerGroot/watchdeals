@@ -1,0 +1,26 @@
+{# snippets/form-search.rain #}
+<div class="col-xs-12 col-sm-3 search-form" id="search-expanded">
+  <div>
+    
+    <h3 class="col-xs-10">{{ 'Find your perfect watch' | t }}</h3>
+    <a rel="nofollow" id="close-search" class="col-xs-2 sc-right" onclick="showSearch()">✕</a>
+    
+    <div class="search tui col-xs-12">
+
+      <form action="{{ 'search' | url }}" class="searched" method="get">
+        <input id="search-box" type="search" name="q" autocomplete="off" value="{{ page.search }}" placeholder="{{ 'Brand or' | t }} model nr..."/>
+        <a class="search" onclick="$('.searched').submit(); return false;" href="#"><i class="fa fa-search"></i></a>
+      </form>
+
+      <div class="col-xs-12">
+        <div class="autocomplete">
+          <div class="products products-livesearch"></div>
+          <div class="more"><a href="#">{{ 'View all results' | t }} <span>(0)</span></a></div>
+          <div class="notfound">{{ 'No products found' | t }}...</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

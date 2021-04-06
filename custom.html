@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+  <html lang="{{ shop.language }}">
+    <head>
+      {% include 'blocks/head.rain' %}
+
+      {# Datalayers #}
+      <script>
+    		window.dataLayer = window.dataLayer || [];
+    	</script>
+      
+      {% include 'snippets/datalayer-impressions.rain' %}
+      {% include 'snippets/datalayer-promo-clicks.rain' %}
+  
+      {% if template != 'pages/thankyou.rain' %}
+        {% include 'snippets/datalayer-click-product.rain' %}
+        {% include 'snippets/datalayer-add-to-cart.rain' %}
+        {% include 'snippets/datalayer-remove-from-cart.rain' %}
+    	{% endif %}
+      
+      {% if template == 'pages/product.rain' %}
+        {% include 'snippets/datalayer-detailpage.rain' %}
+      {% elseif template == 'pages/collection.rain' %}
+       	{% include 'snippets/datalayer-list.rain' %}
+    	{% endif %}
+      {# End Datalayers #}
+      
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-M23M422');
+      </script>
+    
+    <title>
+      {% if template == 'pages/product.rain' %}
+      	{{ 'Second hand' | t }} {{ product.brand }} {{ product.fulltitle }}
+      {% else %}
+      	{{ product.product.brand }} {{ page.title }} {% if page.title == 'Rolex' %} {{ 'Watches' | t }} {% endif %} - {{ shop.name }} {% if page.title == 'Rolex' %} Amsterdam {% endif %}
+      {% endif %}
+    </title>
+      
+    <meta name="description" content="{% if page.title == 'Rolex' %}{{ 'Schaap en Citroen in Amsterdam is proud to be part of the worldwide network of Official Rolex Retailers, allowed to sell and maintain Rolex watches' | t }}. {% else %} {{ shop.description }} {% endif %}">
+    <meta name="keywords" content="{{ shop.keywords }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="shortcut icon" href="{{ 'favicon.ico' | url_asset }}" type="image/x-icon">
+    
+    <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+      
+    <link rel="stylesheet" href="{{ 'bootstrap.css' | url_asset }}">
+    <link rel="stylesheet" href="{{ 'base.css' | url_asset }}">
+    <link rel="stylesheet" href="{{ 'style.css' | url_asset }}">  
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" rel="stylesheet">
+
+    <script defer src="https://kit.fontawesome.com/35cd322369.js"></script>
+    <script defer src="{{ 'lazyload.js' | url_asset }}"></script>  
+    <script src="{{ 'jquery-1-9-1.js' | url_core }}"></script>
+    <script src="{{ 'jquery-ui-1-10-1.js' | url_core }}"></script>
+      
+    {% if template == 'pages/collection.rain' %}
+			<script defer src="{{ 'jquery-touch-punch.js' | url_asset }}"></script>
+    {% endif %}
+      
+    <script defer src="{{ 'bootstrap.js' | url_asset }}"></script>  
+    <script defer src="{{ 'global.js' | url_asset }}"></script>
+    <script async src="{{ 'form.js' | url_asset }}"></script>
+    <script defer src="{{ 'gui.js' | url_core }}"></script>
+
+    {% if template == 'pages/product.rain' %}
+      <link rel="stylesheet" href="{{ 'lightgallery.css' | url_asset }}">
+      <link rel="stylesheet" href="{{ 'productpagina.css' | url_asset }}">
+      <script defer src="{{ 'productpagina.js' | url_asset }}"></script>
+      <script defer src="{{ 'lightgallery-min.js' | url_asset }}"></script>
+    {% endif %}
+
+    <script>      
+      function doMath() {
+        {% for product in page.cart.products %}
+          var sum{{ loop.index }} = document.getElementById('sum{{ loop.index }}').value;
+         {% endfor %}
+           var sum = {% for product in page.cart.products %}parseInt(sum{{ loop.index }}) + {% endfor %}0;
+          document.write(sum);
+         }
+    </script>
+  </head>
+  
+  <body class="container-fluid nopadding">
+    
+  <!-- Google Tag Manager (noscript) -->
+	<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M23M422" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+	<!-- End Google Tag Manager (noscript) -->
+    
+    {% include 'snippets/header.rain' %}
+     
+    <main>                       
+      {% include 'snippets/breadcrumbs.rain' %}   
+      
+      <div class="foutmeldingen">        
+        {% include 'snippets/messages.rain' %}
+      </div>
+      
+      {% include template %}      
+    </main>
+  
+    {% include 'snippets/footer.rain' %}
+     
+    {% include 'blocks/body.rain' %}
+    
+    {% if template == 'pages/collection.rain' or template == 'pages/product.rain' or template == 'pages/index.rain' %}
+    	{% include 'snippets/navbar-bottom.rain' %}
+    {% endif %}
+
+    {% include 'snippets/social-share.rain' %}
+    
+  </body>
+</html>

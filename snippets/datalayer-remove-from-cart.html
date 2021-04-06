@@ -1,0 +1,23 @@
+{# snippets/datalayer-remove-from-cart.rain #}
+<script>
+{# Call this function when a user clicks on a product link. This function uses the event to Google Analytics. #}
+function removeFromCart(sku, name, price, brand, quantity) {  
+   
+  dataLayer.push({
+    event: 'removeFromCart',
+      ecommerce: {
+        currencyCode: '{{ shop.currency2.code }}',
+        remove: {                               
+          products: [{    
+            id: sku,
+            name: name,
+            price: price,
+            brand: brand,
+            quantity: 1,
+            metric1: -price
+         }]
+      }
+    }
+  });
+}
+</script>

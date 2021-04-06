@@ -1,0 +1,13 @@
+<div class="container-fluid page-title">
+  
+    <div class="col-sm-6 col-md-6">
+      <h1>{{ 'Tags' | t }}</h1>
+    </div>
+    
+    <div class="col-md-12 left">
+      {% for tag in shop.tags %}
+      <a href="{{ tag.url | url }}" title="{{ tag.title }}">{{ tag.title }} <span>({{ tag.count }})</span></a> {% if not loop.last %}/ {% endif %}
+      {% endfor %}
+    </div>
+    
+  </div>

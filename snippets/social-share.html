@@ -1,0 +1,35 @@
+{# snippets/social-share.rain #}
+<div id="share" class="col-xs-12">
+  
+  <div>
+    
+    <h3 class="col-xs-10">{{ 'Sharing is caring' | t }}</h3>
+    <a rel="nofollow" id="close-share" class="col-xs-2 sc-right" onclick="showShare()">✕</a>
+    
+    <p class="col-xs-12">{{ "Help each other in finding the perfect jewellery, diamond or watch" | t }}!</p>
+  
+    <h3 class="sub-header col-xs-12">{{ 'options' | t }}</h3>
+    <a class="col-xs-12 social-link" href="http://www.facebook.com/sharer.php?u={{ request.url | url }}" target="_blank" rel="nofollow">
+      <i class="fab fa-facebook" style="color:#3B5998;"></i> {{ 'Facebook' | t }}
+    </a>
+
+    <a class="col-xs-12 social-link" href="http://twitter.com/share?text={{ 'have you seen this:' | t }}&url={{ request.url | url }}" target="_blank" rel="nofollow">
+      <i class="fab fa-twitter" style="color:#00aced;"></i> {{ 'Twitter' | t }}
+    </a>
+    
+    <a class="col-xs-12 social-link" href="http://www.linkedin.com/shareArticle?mini=true&url={{ request.url | url }}" target="_blank" rel="nofollow">
+      <i class="fab fa-linkedin-in" style="color:#4875B4;"></i> {{ 'LinkedIn' | t }}
+    </a>
+         
+    <a class="col-xs-12 social-link" target="_blank" rel="nofollow"
+      {% if request.device.mobile %}
+        href="whatsapp://send?text={{ 'I think this is interesting for you' | t }}:%20{{ request.url | url }}"
+      {% else %}
+        href="https://web.whatsapp.com/send?text={{ 'I think this is interesting for you' | t }}:%20{{ request.url | url }}"
+      {% endif %}>
+      <i class="fab fa-whatsapp" style="color:#25D366;"></i> {{ 'WhatsApp' | t }}
+    </a>
+         
+  </div>
+  
+</div>

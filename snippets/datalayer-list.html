@@ -1,0 +1,17 @@
+{# snippets/datalayer-list.rain #}
+<script>
+  window.dataLayer.push({
+    event: 'categoryList',
+    ecommerce: {
+      currencyCode: '{{ shop.currency | upper }}',
+      impressions: [ {% for product in collection.products %} {
+        id: '{{ product.sku }}',
+        name: '{{ product.url | replace ({'.html':''})}}', {# strip .html from name (url) #}
+      	brand: '{{ product.brand.title }}',
+        price: '{{ product.price.price_incl | number_format(2, '.', '') }}',
+        {# list: 'grid: {{ collection.title }} page {{ collection.page }}', #}
+        position: {{ loop.index }}
+      } {% if not loop.last %},{% endif %} {% endfor %} ]
+    }
+  });
+</script>

@@ -1,0 +1,104 @@
+{# snippets/lp-watch-sell.rain #}
+<section class="col-xs-12 row">
+  
+  <div id="sell-your-watch">
+    <img {% if request.device.mobile %} src="{{ 'banner-pre-owned-mobiel.jpg' | url_asset }}" {% else %} src="{{ 'banner-pre-owned.jpg' | url_asset }}" {% endif %}>
+
+    <div id="inner-sell-your-watch">
+      <h1>{{ textpage.title }}</h1>
+      <p class="col-xs-8 col-sm-12 nopadding" style="margin-top:0;margin-bottom:12px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>4.9 / 5 {{ 'reseller rating' | t }}</p>
+      <a href="#anchor">{{ 'Get your watch quote' | t }}</a>
+    </div>
+  </div>
+ 
+</section>
+
+<section class="row col-xs-12" id="sell-your-watch-steps">
+  
+  <div class="inner-product-sidebar row">
+  
+    <h2 class="sc-center">{{ 'Our process' | t }}, {{ 'Your ease' | t }}</h2>
+
+    <div class="col-sm-3 col-xs-12">
+      <span>1</span>
+      <h3>{{'Fill in the form' | t }}</h3>
+      <p>{{ "Done in under 2 minutes" | t }}.</p>
+    </div>
+
+    <div class="col-sm-3 col-xs-12">
+      <span>2</span>
+      <h3>{{'Receive your estimate' | t }}</h3>
+      <p>{{ "Evaluated by our experts" | t }}.</p>
+    </div>
+
+    <div class="col-sm-3 col-xs-12">
+      <span>3</span>
+      <h3>{{'Send or bring your watch' | t }}</h3>
+      <p>{{ "A final technical inspection" | t }}.</p>
+    </div>
+
+    <div class="col-sm-3 col-xs-12">
+      <span>4</span>
+      <h3>{{'Claim your value' | t }}</h3>
+      <p>{{ "By bank payment or cash" | t }}.</p>
+    </div>
+  
+  </div>
+    
+</section>
+
+<section class="row col-xs-12">
+  <div id="anchor" class="pad-12 mar-12"></div>
+  <div class="pad-12 mar-12"></div>
+  
+  <div class="row col-xs-12 col-sm-7 inner-product-sidebar">
+  	{% include 'snippets/form-sell-watch.rain' %}
+  </div>
+  
+  <div class="col-sm-4 col-sm-offset-1 col-xs-12 inner-product-sidebar">
+    <h3>{{ 'Why sell your watch at Watchdeals' | t }}?</h3>
+    <div class="mar-12"><i class="fa fa-check" aria-hidden="true"></i> {{ 'A wide and trusted network' | t }}</div>
+    <div class="mar-12"><i class="fa fa-check" aria-hidden="true"></i> {{ 'Non-committal & fast' | t }}</div>
+    <div class="mar-12"><i class="fa fa-check" aria-hidden="true"></i> {{ 'The best price' | t }}</div>
+    <div class="mar-12"><i class="fa fa-check" aria-hidden="true"></i> {{ 'An experienced team' | t }}</div>
+	</div>
+  
+</section>
+
+<section class="row col-xs-12" style="margin-top:2rem;">
+  
+  <h2 class="sc-center">{{ 'FAQ Sell Your Watch' | t }}</h2>
+  
+  <div class="row inner-product-sidebar">
+    <a class="col-xs-12 filter-link" href="#" onclick="return false" rel="nofollow" data-toggle="collapse" data-target="#faq-1" aria-expanded="false" aria-controls="faq-1">{{ "Which watch brands can I sell" | t }}?</a>
+    <div id="faq-1" class="collapse col-xs-12">
+      <p>{{ "You can pick one of the many luxury brands from the select box in the form" | t }}.</p>
+      <p>{{ "Think about exclusive brands such as Rolex, Patek Philippe, Hublot, Longines and many more" | t }}.</p>
+    </div>
+  </div>
+
+<div class="row inner-product-sidebar">
+  <a class="col-xs-12 filter-link" href="#" onclick="return false" rel="nofollow" data-toggle="collapse" data-target="#faq-2" aria-expanded="false" aria-controls="faq-2">{{ "What does selling on consignment mean" | t }}?</a>
+  <div id="faq-2" class="collapse col-xs-12">
+    <p>Schaap en Citroen {{ "handles the whole process of selling your watch for the best price possible" | t }}.</p>
+    <p>{{ "We offer your watch on our platforms for a fixed fee of €250 and a 10% commission fee" | t }}.</p>
+  </div>
+</div>
+
+<div class="row inner-product-sidebar">
+  <a class="col-xs-12 filter-link" href="#" onclick="return false" rel="nofollow" data-toggle="collapse" data-target="#faq-3" aria-expanded="false" aria-controls="faq-3">{{ "How long does the process take" | t }}?</a>
+  <div id="faq-3" class="collapse col-xs-12">
+    <p>{{ "Our aim is to answer your initial request within 5 working days after submission" | t }}.</p>
+    <p>{{ "The rest of the process depends on various factors such as the popularity of the watch and payment providers" | t }}.</p>
+  </div>
+</div>
+
+<div class="row inner-product-sidebar">
+  <a class="col-xs-12 filter-link" href="#" onclick="return false" rel="nofollow" data-toggle="collapse" data-target="#faq-4" aria-expanded="false" aria-controls="faq-4">{{ "What is a general price indication" | t }}?</a>
+  <div id="faq-4" class="collapse col-xs-12">
+    <p>{{ "The value is based on likewise products at that moment from various reseller platforms" | t }}.</p>
+    <p>{{ "If you would like to have an official taxation we charge" | t }} €125.</p>
+  </div>
+</div>
+  
+</section>

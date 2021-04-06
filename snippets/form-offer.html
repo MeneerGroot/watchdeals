@@ -1,0 +1,26 @@
+{# snippets/form-offer.rain #}
+<div id="offerte" class="collapse col-xs-12">    
+  <form id="wd-offerte" class="inline col-xs-12 col-sm-7">
+    
+    <p>{{ 'Receive information about the price and delivery time of this' | t }} {{ product.fulltitle }}.</p>
+    <small>{{ 'Fields marked with * are required' | t}}</small>
+
+    <input type="hidden" name="formulier" value="{{ 'Offerte aanvragen' | t }} - {{ 'Customer' | t }} is {{ shop.language }}">
+    <input type="hidden" name="Site" value="Site: {{ shop.name }}">
+    
+    <input type="text" name="naam" placeholder="{{ 'Name' | t}} *" required class="text">
+    <input type="email" name="email" placeholder="{{ 'E-mail' | t }} *" required class="text">
+    <input type="tel" name="telefoon" placeholder="{{ 'Phone number' | t }} *" required class="text">
+    <textarea name="bericht" rows="5" placeholder="{{ 'Additional information' | t }}" class="text"></textarea>
+
+    <input type="hidden" name="Vestiging" value="Vintage">
+    <input type="hidden" name="let-op" class="text" value="Dit is een tweedehands horloge!">
+
+    <input type="hidden" name="interesse_in" class="text" value="{{ product.fulltitle }}">
+    <input type="hidden" name="referentie" class="text" value="{{ product.code }}">
+    <input type="hidden" name="sku" class="text" value="{{ product.sku }}">
+    <input type="checkbox" name="consent" value="yes" required><i style="color:#2cb323" class="fa fa-lock" aria-hidden="true"></i> {{ 'I do accept the' | t }} <a href="https://www.schaapcitroen.nl/{{ shop.language }}/service/privacy-policy/" target="_blank">{{ 'privacy policy' | t }}</a> *.
+    <input type="submit" value="{{ 'Send' | t }}">
+
+  </form> 
+</div>

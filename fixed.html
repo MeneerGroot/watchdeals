@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="{{ shop.language }}">
+  <head>
+    
+    <script>
+    	window.dataLayer = window.dataLayer || [];
+    </script>
+    
+    {# Datalayers #}
+		{% if template == 'pages/index.rain' %}
+      {% include 'snippets/datalayer-impressions.rain' %}
+      {% include 'snippets/datalayer-promo-clicks.rain' %}
+    {% endif %}
+    
+    {% if template != 'pages/thankyou.rain' %}
+    {% include 'snippets/datalayer-click-product.rain' %}
+    {% include 'snippets/datalayer-add-to-cart.rain' %}
+    {% include 'snippets/datalayer-remove-from-cart.rain' %}
+    {% endif %}
+
+    {% if template == 'pages/product.rain' %}
+      {% include 'snippets/datalayer-detailpage.rain' %}
+    {% elseif template == 'pages/collection.rain' %}
+      {% include 'snippets/datalayer-list.rain' %}
+    {% endif %}
+
+    {% if template == "pages/cart.rain" %} 
+      {% include 'snippets/datalayer-cart.rain' %}
+    {% elseif template == 'pages/checkouts/default.rain' %}
+      {% include 'snippets/datalayer-checkout.rain' %}
+    {% elseif template == 'pages/thankyou.rain' %}
+      {% include 'snippets/datalayer-purchase.rain' %}
+    {% endif %}
+    {# End Datalayers #}
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-M23M422');
+    </script>
+    
+    {% include 'blocks/head.rain' %}
+    <title>{{ page.title }} - {{ shop.name }}</title>
+    <meta name="description" content="{{ shop.description }}">
+    <meta name="keywords" content="{{ shop.keywords }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="shortcut icon" href="{{ 'favicon.ico' | url_asset }}" type="image/x-icon">
+    
+    <link rel="stylesheet" href="{{ 'bootstrap.css' | url_asset }}">    
+    <link rel="stylesheet" href="{{ 'style.css' | url_asset }}">  
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    {% if template == 'pages/cart.rain' %}
+    	<link rel="stylesheet" href="{{ 'custom-cart-page.css' | url_asset }}"> 
+    {% elseif template == 'pages/checkouts/default.rain' %}
+      <link rel="stylesheet" href="{{ 'cart-page.css' | url_asset }}">
+    {% elseif template == ' pages/compare.rain' %}
+    	<link rel="stylesheet" href="{{ 'compare.css' | url_asset }}">
+    {% endif %}
+     
+    <link rel="stylesheet" href="{{ 'base.css' | url_asset }}">
+    
+    <script src="{{ 'jquery-1-9-1.js' | url_core }}"></script>
+    <script src="{{ 'jquery-ui-1-10-1.js' | url_core }}"></script>
+    <script defer src="{{ 'bootstrap.js' | url_asset }}"></script>
+    <script defer src="{{ 'global.js' | url_asset }}"></script>
+   
+    <script defer src="https://kit.fontawesome.com/35cd322369.js"></script>
+    <script src="{{ 'gui.js' | url_core }}"></script>
+    <script defer src="{{ 'flexslider2-min.js' | url_asset }}"></script>
+
+    <script>
+      function doMath() {
+        {% for product in page.cart.products %}
+          var sum{{ loop.index }} = document.getElementById('sum{{ loop.index }}').value;
+         {% endfor %}
+           var sum = {% for product in page.cart.products %}parseInt(sum{{ loop.index }}) + {% endfor %}0;
+          document.write(sum);
+         }
+    </script>    
+	</head>
+  
+  <body class="cart{% if checkout %} checkout{% endif %}{% if template == 'pages/textpage.rain' %} textpage{% endif %} container-fluid nopadding"> 
+    
+  <!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M23M422" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+    {% include 'snippets/header.rain' %}
+    
+    <main>
+      {% include 'snippets/breadcrumbs.rain' %}  
+      
+      <div class="col-xs-12">
+      	
+      </div>
+      <div class="col-xs-12 row col-sm-9">
+        {% include template %}
+      </div>
+      
+      <div class="col-xs-12 col-sm-3 inner-product-sidebar">
+					{% include 'snippets/usp-block.rain' %}
+      </div>
+      
+    </main>
+    
+    {% include 'snippets/footer.rain' %} 
+    
+    {% include 'blocks/body.rain' %}
+     
+  </body>
+</html>

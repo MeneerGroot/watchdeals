@@ -1,0 +1,42 @@
+{# snippets/datalayer-checkout.rain #}
+{% if step == 'method' %}
+  {% set COStep = 2 %}
+  {% set COOption = 'Method' %}
+{% elseif step == 'details' %}
+  {% set COStep = 3 %}
+  {% set COOption = 'Details' %}
+{% elseif step == 'shipping' %}
+  {% set COStep = 4 %}
+  {% set COOption = 'Shipping' %}
+{% elseif step == 'shipment' %}
+  {% set COStep = 5 %}
+  {% set COOption = 'Shipment' %}
+{% elseif step == 'payment' %}
+  {% set COStep = 6 %}
+  {% set COOption = 'Payment' %}
+{% elseif step == 'review' %}
+  {% set COStep = 7 %}
+  {% set COOption = 'Review' %}
+{% else %}
+  {% set COStep = 0 %}
+  {% set COOption = 'Unknown' %} 
+{% endif %}
+
+<!-- GTM -->
+<script>
+  dataLayer.push({
+    event: 'checkout',
+    ecommerce: {
+      checkout: {
+        actionField: {'step': {{ COStep }}, option: '{{ COOption }}'},    
+        products: [ {% for product in page.cart.products %} {
+          id: '{{ product.sku }}',
+          name: '{{ product.url | replace ({'.html':''})}}',
+          price: {{ product.price.price_incl | number_format(2, '.', '') }},
+          brand: '{{ product.brand.title }}',
+          quantity: {{ product.quantity }}
+        }{% if not loop.last %},{% endif %} {% endfor %} ]
+      }
+    }
+  });
+</script>

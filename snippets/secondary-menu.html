@@ -1,0 +1,8 @@
+{# snippets/secondary-menu.rain #}
+<aside class="row" id="top-nav">
+  {% if shop.language == 'nl' %}
+    <a class="col-xs-3 sc-right" style="float:right;" href="{{shop.domain}}en/">English</a>
+  {% else %}
+    <a class="col-xs-3 sc-right" style="float:right;" href="{{shop.domain}}nl/">Dutch</a>
+  {% endif %}
+</aside>

@@ -1,0 +1,144 @@
+<div id="collection" class="container-fluid nopadding">
+  
+    {# COLLECTION HEADER #}
+    {% if 'search' in request.url %}
+    
+      <h1 class="sc-center">{{ collection.title }}</h1>
+    
+        <p class="sc-center">{{ collection.count }} {% if collection.count == 1 %}{{ 'Product' | t }}{% else %}{{ 'Products' | t }}{% endif %} {{ 'found' | t }}</p>
+    
+    {% elseif 'brands' in request.url %}
+    
+      {% if collection.image %}
+            {% if request.device.mobile %}
+                <img class="row" src="{{ collection.image | url_image('480x120x2', collection.title) }}" alt="{{collection.title}} | {{shop.title}}">
+            {% else %}
+            <img class="col-xs-12 row" src="{{ collection.image | url_image('1200x300x2', collection.title) }}" alt="{{collection.title}} | {{shop.title}}">
+            {% endif %}
+      {% endif %}
+    
+      {% if collection.brand_id != '627684' %}
+            <h1 class="sc-center">{{ 'Second hand' | t }} {{ collection.title }} {{ 'watches' | t }} | {{shop.name }}</h1>
+        {% else %}
+          <h1 class="sc-center">{{ collection.title }} | {{shop.name }}</h1>
+      {% endif %}
+    
+        <p class="sc-center">{{ collection.count }} {% if collection.count == 1 %}{{ 'Product' | t }}{% else %}{{ 'Products' | t }}{% endif %} {{ 'found' | t }}</p>
+    
+    {% else %}
+    
+        <h1 class="sc-center">{{ collection.title }} | {{shop.name }}</h1>
+        <p class="sc-center">{{ collection.count }} {% if collection.count == 1 %}{{ 'Product' | t }}{% else %}{{ 'Products' | t }}{% endif %} {{ 'found' | t }}</p>
+    
+    {% endif %}
+    {# / COLLECTION HEADER #}
+  
+    {# COLLECTION DESCRIPTION #}
+    {% if collection.content %}
+      <div class="container-fluid">
+         {{ collection.content | raw }}
+      </div>
+    {% endif %}
+    {# / COLLECTION DESCRIPTION #}
+    
+    {# COLLECTION MOBILE SHORT DESCRIPTION #}
+    {% if collection.description %}
+      <div class="container-fluid visible-xs">   
+          {{ collection.description }}
+      </div>
+    {% endif %}
+    {# / COLLECTION MOBILE SHORT DESCRIPTION #}
+    
+    {# MAIN #}
+    <div class="row container-fluid">
+  
+      {# SIDEBAR #} 
+        {% include 'snippets/sidebar.rain' %}
+      {# / SIDEBAR #}
+              
+      <section class="col-md-9 sc-flex-row">
+       
+        {# ACTIVE FILTERS #}
+        <div class="col-xs-12" id="active-filters" style="padding-bottom:12px;">
+  
+          {% set filterActiveCount = 0 %}
+          {% for filter in collection.filters.custom %}        
+            {% for value in filter.values %}
+              {% if value.active %}
+                {% set filterActiveCount = filterActiveCount + 1 %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+  
+          {% if filterActiveCount >= 1 %}
+            <h3 class="sub-header">{{ 'Active filters' | t }}</h3>
+          {% endif %}
+  
+          {% for filter in collection.filters.custom %}        
+            {% for value in filter.values %}
+              {% if value.active %}
+                <div class="active-filter">{{ value.title }} <span onclick="removeFilter({{value.id}})">✕</span> </div>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+          
+          {% if filterActiveCount >= 1 %}
+              <a class="active-filter" href="{{shop.canonical}}" rel="no-follow">{{ 'Clear all filters' | t}} ✕</a>
+          {% endif %}
+  
+        </div>
+        {# / ACTIVE FILTERS #}  
+        
+        {# NO RESULTS #}
+        {% if not collection.products %}
+        
+          <section class="row sc-flex-row">
+            <p class="no-products-found col-xs-12">{{ 'Unfortunately there are no products found based on your search query' | t }}...</p> 
+  
+            {# Watch hunter #}
+  
+            <div class="row inner-product-sidebar col-xs-12 col-sm-7" style="margin:0 auto;">
+              <a href="#zoekhorloge" class="sc-form col-xs-12" data-toggle="collapse">{{ 'Watch Hunter' | t }}</a>
+              {% include 'snippets/form-watch-hunter.rain' %}
+            </div>
+            {# End watch hunter #} 
+  
+          </section>
+                       
+        {% endif %}
+        {# / NO RESULTS #}  
+  
+        {# PRODUCTS #}
+        {% if collection.brand_id != '627684' %}
+          {% for product in collection.products %}             
+            {% include 'snippets/products.rain' with {'type': collection.mode} %}        
+          {% endfor %}
+        {% endif %}
+        {# / PRODUCTS #}  
+  
+        {# PAGINATION #}
+        {% if collection.pages > 1 %}
+          {% set pagination = collection | paginate %}
+  
+          <ul class="collection-pagination col-xs-12 sc-center">
+            {% if pagination.previous %}
+              <li class="prev"><a rel="prev" href="{{ pagination.previous.url | url }}" title="{{ 'Previous page' | t }}">{{ 'Previous' | t }}</a></li>
+            {% endif %}
+            {% for part in pagination.parts %}
+              {% if part.url %} 
+                <li class="number{% if part.active %} active{% endif %}"><a href="{{ part.url | url }}">{{ part.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if pagination.next %}
+              <li class="next"><a rel="next" href="{{ pagination.next.url | url }}" title="{{ 'Next page' | t }}">{{ 'Next' | t }}</a></li>
+            {% endif %}
+          </ul>
+        {% endif %}
+        {# / PAGINATION #}
+            
+        </section> 
+        
+      </div>
+    {# / MAIN #}
+  
+  </div>

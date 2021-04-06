@@ -1,0 +1,13 @@
+{# BREADCRUMBS #}
+{% if template != 'pages/index.rain' %}
+  <nav itemprop="breadcrumbs" class="breadcrumbs row hidden-xs">
+    <a href="{{ '' | url }}" title="{{ 'Home' | t }}">{{ 'Home' | t }}</a>
+    {% set iterateCrumbs = 1 %}
+    {% for breadcrumb in page.breadcrumbs %}
+    	<span> / </span>
+    	<a href="{{ breadcrumb.url | url }}" {% if loop.last %}class="current"{% endif %} title="{{ breadcrumb.title }}">{{ breadcrumb.title }}</a>
+    {% set iterateCrumbs = iterateCrumbs+1 %}
+    {% endfor %}
+  </nav>
+{% endif %}
+{# / BREADCRUMBS #}

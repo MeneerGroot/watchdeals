@@ -1,0 +1,22 @@
+{# snippets/datalayer-click-product.rain #}
+<script>
+function productClick(sku, name, price, brand, index, url) {
+  dataLayer.push({
+    event: 'productClick',
+    ecommerce: {
+      click: {
+        products: [{
+          id: sku,
+    			name: name,
+          price: price,
+          brand: brand,
+          position: index
+         }]
+       }
+     },
+     eventCallback: function productClick() {
+       document.location = url
+     }
+  });
+}
+</script>

@@ -1,0 +1,159 @@
+<div id="inruilen-container" class="collapse col-xs-12">       
+    <form id="wd-inruilen" class="inline">
+    
+      <p>{{ 'Do you wish to part-exchange your current watch for this' | t}} {{ product.fulltitle }}?</p>
+      <p>{{ 'We provide you a non-committal price indication for the best possible value and you will only pay the difference between the purchase price and your exchange value' | t}}
+      </p>
+      <small>{{ 'Fields marked with * are required' | t}}</small>
+  
+      {# Watch specs #}
+      <fieldset class="row">
+        <legend class="col-sm-4 col-xs-12">{{ 'Watch specifications' | t }}</legend>
+  
+        <div class="col-sm-8 col-xs-12">
+  
+          <input type="hidden" name="formulier" value="{{ 'Inruilen' | t }} - {{ 'Customer' | t }} is {{ shop.language }}">
+          <input type="hidden" name="Site" value="Site: {{ shop.name }}">
+  
+          <select name="Merk"> 
+            <option value="">{{ 'Brand' | t }}</option>
+            <option value="Audemars Piguet">Audemars Piguet</option>
+            <option value="Baume Mercier">Baume & Mercier</option>
+            <option value="Blancpain">Blancpain</option>
+            <option value="Breguet">Breguet</option>
+            <option value="Breitling">Breitling</option>
+            <option value="CHANEL">CHANEL</option>
+            <option value="Cartier">Cartier</option>
+            <option value="Chopard">Chopard</option>
+            <option value="Christiaan v.d Klaauw">Christiaan v.d Klaauw</option>
+            <option value="Hublot">Hublot</option>
+            <option value="IWC">IWC</option>
+            <option value="Jaeger-LeCoultre">Jaeger-LeCoultre</option>
+            <option value="Longines">Longines</option>
+            <option value="Montblanc">Montblanc</option>
+            <option value="Officine Panerai">Officine Panerai</option>
+            <option value="Omega">Omega</option>
+            <option value="Patek Philippe">Patek Philippe</option>
+            <option value="Piaget">Piaget</option>
+            <option value="RADO">RADO</option>
+            <option value="Roger Dubuis">Roger Dubuis</option>
+            <option value="Rolex">Rolex</option>
+            <option value="Tag Heuer">Tag Heuer</option>
+            <option value="Tudor">Tudor</option>
+            <option value="Ulysse Nardin">Ulysse Nardin</option>
+            <option value="Vacheron Constantin">Vacheron Constantin</option>
+            <option value="Zenith">Zenith</option>
+            <option value="Overig">Overig</option>
+          </select>
+  
+          <input type="text" name="model" placeholder="Model *" required class="text" />
+          <input type="text" name="jaar" placeholder="{{ 'Year' | t }} *" required class="text" />
+          <input type="text" name="referentie" placeholder="{{ 'Reference number' | t }} *" required class="text" />
+  
+          <label>{{ 'Do you have the original packaging' | t }}?</label>  
+          <select name="Doos"> 
+            <option value="Ja, met originele doos">{{ 'Yes' | t }}</option>
+            <option value="Nee, geen originele doos">{{ 'No' | t }}</option>
+          </select>
+  
+          <label>{{ 'Do you have the original documents' | t }}?</label>    
+          <select name="Papieren"> 
+            <option value="Ja, met originele papieren">{{ 'Yes' | t }}</option>
+            <option value="Nee, geen originele papieren">{{ 'No' | t }}</option>
+          </select>
+  
+        </div>
+  
+      </fieldset>
+      {# / Watch specs #}
+  
+      {# Contact Details #} 
+      <fieldset class="row">
+  
+        <legend class="col-sm-4 col-xs-12">{{ 'Your contact details' | t }}</legend>
+  
+        <div class="col-sm-8 col-xs-12">
+  
+          <input name="naam" placeholder="{{ 'Name' | t }} *" required class="text" />
+          <input type="email" name="email" placeholder="{{ 'E-mail' | t }} *" required class="text" />
+          <input type="tel" name="telefoon" placeholder="{{ 'Phone number' | t }}" class="text" />
+  
+        </div>
+  
+      </fieldset>
+      {# / Contact Details #} 
+  
+      {# Images #}    
+      <fieldset class="row">
+  
+        <legend class="col-sm-4 col-xs-12">{{ 'Images of your watch' | t }}</legend>
+  
+        <div class="col-sm-8 col-xs-12">
+  
+          <div class="col-xs-12 col-sm-6" style="padding: 1rem 1rem 0rem 1rem; border-radius: 12px; background: #f2f2f2; border:2px solid #ffffff;">
+              <label class="col-xs-12">{{ 'front view' | t }} *</label>
+              <img class="col-xs-12" id="uploadPreview1" style="object-fit: cover; height:100px;" src="{{ 'empty.jpg' | url_asset}}" />
+              <input class="col-xs-12" id="uploadImage1" type="file" name="p1" onchange="PreviewImage(1);" data-required="file" accept="image/*" required/>
+          </div>
+  
+          <div class="col-xs-12 col-sm-6" style="padding: 1rem 1rem 0rem 1rem; border-radius: 12px; background: #f2f2f2; border:2px solid #ffffff;">
+              <label class="col-xs-12">{{ 'back view' | t }} *</label>
+              <img class="col-xs-12" id="uploadPreview2" style="object-fit: cover; height:100px;" src="{{ 'empty.jpg' | url_asset}}" width="80" height="80"/>
+              <input class="col-xs-12" id="uploadImage2" type="file" name="p2" onchange="PreviewImage(2);" data-required="file" accept="image/*" required/>
+          </div>
+  
+          <div class="col-xs-12 col-sm-6" style="padding: 1rem 1rem 0rem 1rem; border-radius: 12px; background: #f2f2f2; border:2px solid #ffffff;">
+              <label class="col-xs-12">{{ 'watch strap' | t }} *</label>
+              <img class="col-xs-12" id="uploadPreview3" style="object-fit: cover; height:100px;" src="{{ 'empty.jpg' | url_asset}}" width="80" height="80"/>
+              <input class="col-xs-12" id="uploadImage3" type="file" name="p3" onchange="PreviewImage(3);" data-required="file" accept="image/*" required/>
+          </div>
+  
+          <div class="col-xs-12 col-sm-6" style="padding: 1rem 1rem 0rem 1rem; border-radius: 12px; background: #f2f2f2; border:2px solid #ffffff;">
+              <label class="col-xs-12">{{ 'box' | t }}<small> - indien beschikbaar</small></label>
+              <img class="col-xs-12" id="uploadPreview4" style="object-fit: cover; height:100px;" src="{{ 'empty.jpg' | url_asset}}" width="80" height="80"/>
+              <input class="col-xs-12" id="uploadImage4" type="file" name="p4" onchange="PreviewImage(4);" accept="image/*" />
+          </div>
+  
+          <div class="col-xs-12 col-sm-6" style="padding: 1rem 1rem 0rem 1rem; border-radius: 12px; background: #f2f2f2; border:2px solid #ffffff;">
+              <label>{{ 'guarantee document' | t }}<small> - indien beschikbaar</small></label>
+              <img class="col-xs-12" id="uploadPreview5" style="object-fit: cover; height:100px;" src="{{ 'empty.jpg' | url_asset}}" width="80" height="80"/>
+              <input class="col-xs-12" id="uploadImage5" type="file" name="p5" onchange="PreviewImage(5);" accept="image/*" />
+          </div>
+  
+        </div>
+  
+      </fieldset>
+      {# / Images #}
+  
+      {# Privacy + submit #} 
+      <fieldset class="row">
+  
+        <legend class="col-sm-4 col-xs-12">{{ 'Accept and send' | t }}</legend>
+  
+        <div class="col-sm-8 col-xs-12">
+  
+          <div class="col-xs-12">
+            <input type="checkbox" name="consent" value="yes" required><i style="color:#2cb323; margin-left:14px;" class="fa fa-lock" aria-hidden="true"></i> {{ 'I do accept the' | t }}  		<a href="https://www.schaapcitroen.nl/nl/service/privacy-policy/" target="_blank">{{ 'privacy policy' | t }}</a> *.
+          </div>
+  
+          <div class="col-xs-12">
+            <input type="submit" value="{{ 'Send' | t }}" />	
+          </div>
+  
+        </div>
+  
+      </fieldset>
+      {# / Privacy + submit #} 
+  
+    </form>
+  </div>
+  
+  <script>
+      function PreviewImage(no) {
+          var oFReader = new FileReader();
+          oFReader.readAsDataURL(document.getElementById("uploadImage"+no).files[0]);
+          oFReader.onload = function (oFREvent) {
+          document.getElementById("uploadPreview"+no).src = oFREvent.target.result;
+          };
+      }
+  </script>

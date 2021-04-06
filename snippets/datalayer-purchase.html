@@ -1,0 +1,23 @@
+{# snippets/datalayer-purchase.rain #}
+<script>
+  dataLayer.push({
+    ecommerce: {
+      purchase: {
+        actionField: {    
+        id: '{{ order.information.number }}',
+        affiliation: 'Webshop',
+        revenue: {{ order.information.price_incl }},
+        tax: {{ order.information.price_tax }},
+        shipping: {{ order.information.shipping_price }}
+        },
+        products: [ {% for product in order.products %} {
+          id: '{{ product.sku }}',
+          name: '{{ product.url | replace ({'.html':''})}}',
+          price: {{ product.price_incl | number_format(2, '.', '') }},
+          brand: '{{ product.brand }}',
+          quantity: {{ product.quantity }}
+        } {% if not loop.last %},{% endif %} {% endfor %}]
+      }
+    }
+  });
+</script>

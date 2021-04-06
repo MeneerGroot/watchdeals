@@ -1,0 +1,23 @@
+{# Check if jewelery store page #}
+{% if textpage.category_id == "7289822" %}
+	
+	{% include 'snippets/lp-watch-sell.rain' %}
+
+{% else %}
+
+	{# Regular textpage #}
+  <article class="row">
+    {% if textpage.image %}
+      {% if request.device.mobile %}
+        <img class="row nopadding" src="{{ textpage.image | url_image('480x120x2', textpage.title) }}" alt="{{textpage.title}}" title="{{textpage.title}}">
+      {% else %}
+        <img class="row nopadding" src="{{ textpage.image | url_image('1200x300x2', textpage.title) }}" alt="{{textpage.title}}" title="{{textpage.title}}">
+      {% endif %}
+    {% endif %}
+    <h1 class="sc-center">{{ textpage.title }}</h1>
+    <section>
+      {{ textpage.content | raw }}
+    </section>
+	</article>
+
+{% endif %}

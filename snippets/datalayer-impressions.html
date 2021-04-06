@@ -1,0 +1,26 @@
+{# snippets/datalayer-impressions.rain #}
+<script>
+{# An example of measuring promotion views. This example assumes that
+ information about the promotions displayed is available when the page loads. #}
+dataLayer.push({
+  ecommerce: {
+    promoView: {
+      promotions: [ {
+        name: '{{ theme.highlights_title_1 }}',
+        creative: '{{ 'highlight-1.jpg' | url_asset }}',
+        position: '1'
+      },
+      {
+        name: 'IWC in menu ',
+        creative: '{{ 'menu-highlight-1.jpg' | url_asset }}',
+        position: '2'
+      },
+      {
+        name: 'Wedding in menu ',
+        creative: '{{ 'menu-highlight-2.jpg' | url_asset }}',
+        position: '3'
+      }]
+    }
+  }
+});
+</script>
