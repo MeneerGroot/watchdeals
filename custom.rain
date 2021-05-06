@@ -53,7 +53,6 @@
       
     <link rel="stylesheet" href="{{ 'bootstrap.css' | url_asset }}">
     <link rel="stylesheet" href="{{ 'base.css' | url_asset }}">
-    <link rel="stylesheet" href="{{ 'style.css' | url_asset }}">  
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" rel="stylesheet">
 
     <script defer src="https://kit.fontawesome.com/35cd322369.js"></script>

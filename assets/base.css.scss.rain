@@ -58,6 +58,7 @@ main, #inner-menu, #inner-footer {
 
 p, pre{
 	margin:16px 0;
+  line-height: 1.6;
 	&:last-child{margin-bottom:32px;}
 }
 
@@ -83,7 +84,10 @@ label{display:block;}
 .sc-right {text-align: $right;}
 .justify {text-align: justify; padding: 16px 20px 16px 0;}
 
-.visible {display:block !important;}
+.visible {
+	display:block !important;
+  visibility: visible !important;
+}
 .sticky {
 	position:fixed; box-shadow: $med-shadow; left:0; top:0;
 	@media screen and (min-width: $medium) {
@@ -213,14 +217,14 @@ header img#logo {
   #price {margin-top:auto; margin-bottom:6px;}
 }
 .sold-label:before {
-	content: "SOLD";
+	content: "ATO";
   left: 4px;
   font-size: 12px;
   background: #d6d6d6;
   padding: 4px 8px;
   position: absolute;
   z-index: 9;
-  border-radius: 2px 2px 2px 2px;
+  border-radius: 2px;
 }
 #prod-specs { 
 	li {padding:8px;
