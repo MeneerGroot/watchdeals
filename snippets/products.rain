@@ -1,38 +1,65 @@
-{# ALL DISPLAY VARIATIONS #}
-{% if type == 'grid' or type == 'newest' or type == 'list' or type == 'related' %}
+{# GRID #}
+{% if type == 'grid' or type == 'newest' %}
 	
-  <a class="col-sm-3 sc-center col-xs-12 sc-flex-column sc-result" 
+  <a class="col-sm-4 sc-center col-xs-6 sc-flex-column sc-result" 
      href="{{ product.url | url }}" 
      title="{{ product.fulltitle }}" 
-     onclick="productClick('{{ product.sku }}', '{{ product.url | replace ({'.html':''}) }}', '{{ product.price.price_incl }}', '{{ product.brand.title }}', '{{ loop.index }}', '{{ product.url | url }}')">
+     onclick="productClick('
+              {{ product.sku }}', 
+              '{{ product.url | replace ({'.html':''}) }}', 
+              '{{ product.price.price_incl }}',
+              '{{ product.brand.title }}',
+              '{{ loop.index }}', 
+              '{{ product.url | url }}'
+              )"
+     >
 
-    <span class="sc-prod{% if not product.available %} sold-label{% endif %}">">
-   
-      {% if request.device.mobile %}
-        <img class="col-xs-5" 
-             src="{{ 'lazyload.jpg' | url_asset }}" 
-             data-src="{{ product.image | url_image('120x120x2', product.fulltitle) }}"
-             alt="{{ product.title }}"
-             >
-      {% else %}
-        <img src="{{ 'lazyload.jpg' | url_asset }}" 
-             data-src="{{ product.image | url_image('420x420x2', product.fulltitle) }}"
-             alt="{{ product.title }}"
-             >
-      {% endif %}
-
-      <span id="brand" class="col-xs-7 col-sm-12 {% if not request.device.mobile %}sc-center{% endif %}">{{ product.brand.title }}</span>
-      <h3 class="col-xs-7 col-sm-12 {% if not request.device.mobile %}sc-center{% endif %}">{{ product.title }}</h3>
-      <span class="col-xs-7 col-sm-12 {% if not request.device.mobile %}sc-center{% endif %}" id="price">
-        {% if product.available %}	       
-					{{ shop.currency2.symbol }} {{ product.price.price | money_without_currency }}
-				{% else %}
-					 Prijs op aanvraag
-			  {% endif %}
+    {# show label when out of stock #}
+    <span class="sc-prod">
+      <span style="background:#8a8a8a;display:inline-block;">
+        {% if request.device.mobile %}
+        	<img style="opacity:.95" src="{{ 'lazyload.jpg' | url_asset }}" data-src="{{ product.image | url_image('240x240x2', product.fulltitle) }}" alt="{{ product.title }}">
+        {% else %}
+        	<img style="opacity:.95" src="{{ 'lazyload.jpg' | url_asset }}" data-src="{{ product.image | url_image('420x420x2', product.fulltitle) }}" alt="{{ product.title }}">
+        {% endif %}
       </span>
-			<span>{{ 'View' | t }}</span>
-      
-  	</span>
+      <strong class="col-xs-12 sc-center pad-12">{{ product.brand.title }}</strong>
+      <span class="col-xs-12 sc-center">{{ product.title }}</span>
+        
+    	<span class="col-xs-12 sc-center pad-12">
+        {{ shop.currency2.symbol }} {{ product.price.price | money_without_currency }}
+      </span>
+
+    </span>
 	</a>
+
+{# / GRID #}
+{# LIST #}
+{% elseif type == 'list' %}
+
+	<a class="col-md-12 sc-flex-row" href="{{ product.url | url }}" title="{{ product.fulltitle }}" onclick="productClick('{{ product.sku }}', '{{ product.url | replace ({'.html':''}) }}', '{{ product.price.price_incl }}', '{{ product.brand.title }}', '{{ loop.index }}', '{{ product.url | url }}')">
+    
+    <span style="background:#8a8a8a;display:inline-block;">
+  		<img style="opacity:.95" class="col-md-4 col-xs-4 sc-flex-column" src="https://cdn.webshopapp.com/shops/95054/themes/100109/assets/lazyload.jpg" data-src="{{ product.image | url_image('240x240x2', product.fulltitle) }}" alt="{{ product.title }}">
+    </span>
+  	<span itemprop="name" style="align-self: center;" class="sc-prod-title col-md-8 col-xs-8 sc-flex-column"><strong>{{ product.brand.title }}</strong> {{ product.title }}</span>
+	</a>
+{# / LIST #}
+{# PRODUCT RELATED #}
+{% elseif type == 'related' %}
+
+	{% for product in products %}
+	
+	<a class="col-md-2 col-xs-6 sc-prod sc-flex-column" href="{{ product.url | url }}" title="{{ product.fulltitle }}">
+    <span style="background:#8a8a8a;display:inline-block;">
+    	
+  		<img style="opacity:.95" src="https://cdn.webshopapp.com/shops/95054/themes/100109/assets/lazyload.jpg" data-src="{{ product.image | url_image('340x340x2', product.fulltitle) }}" alt="{{ product.title }}">
+    </span>
+    <span class="sc-prod-title"><strong>{{ product.brand.title }}</strong> {{ product.title }}</span>
+
+	</a>
+	
+	{% endfor %}
+
 {% endif %}
-{# / ALL DISPLAY VARIATIONS #}
+{# / PRODUCT RELATED #}

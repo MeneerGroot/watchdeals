@@ -1,0 +1,256 @@
+<article class="container-fluid row nopadding" itemscope itemtype="http://schema.org/Product">   
+
+  {# Left column #}
+  <section class="productpage col-xs-12 col-sm-6">
+    
+    {# Thumbnails #}
+    <ul id="thumbs" class="col-xs-12 col-sm-2 nopadding">
+      {% for image in product.images %}
+        <li class="col-xs-3 col-sm-12">
+          {% if product.images.0 %}
+            <a href="{{ image | url_image('', product.fulltitle) }}" class="img{{ loop.index }}">
+              <img src="{{ image | url_image('156x164x2', product.fulltitle) }}" alt="{{ product.fulltitle }}" title="{{ product.fulltitle }}">
+            </a>
+          {% else %}
+            <img src="{{ 'pro-icon.png' | url_asset }}" alt="{{ product.fulltitle }}">
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>      
+    {# / Thumbnails #}
+    
+    {# Product image #}     
+    <div class="col-sm-10">
+      <div id="product-gallery" class="main-img">        
+        {% for image in product.images %}
+          {% if product.images.0 %}       
+            {% if loop.index >= 1 %}
+              <a data-title="{{ product.title }}" data-src="{{ image | url_image('', product.fulltitle) }}" class="img{{ loop.index }}">
+                <i class="fa fa-search-plus"></i>
+                <img itemprop="image" src="{{ image | url_image('340x396x2', product.fulltitle) }}" alt="{{ product.fulltitle }}">
+              </a>
+            {% endif %}
+          {% else %}
+            <img src="{{ 'pro-icon.png' | url_asset }}" alt="{{ product.fulltitle }}">
+          {% endif %}
+        {% endfor %}   
+
+      </div>
+      {# SC certified label #}
+      <span id="sc-label"><img src="{{ 'sc-po-certified.svg' | url_asset }}" /></span>
+      
+    </div>
+    {# / Product image #}
+    
+    {% if product.data_01 == '360' %}
+    	<a class="col-xs-12" id="threesixty" href="https://cdn.schaapcitroen.nl/360/{{ product.sku }}" target="_blank">{{ 'View' | t }} in 360°</a>
+    {% endif %}
+         
+  </section>
+  {# / Left column #}
+  
+  <meta itemprop="sku" content="{{ product.sku }}">
+  <meta itemprop="name" content="{{ product.fulltitle }}">
+  <meta itemprop="description" content="{{ product.title }}">
+  <meta itemprop="brand" content="{{ product.brand.title }}">
+  
+  <section class="col-xs-12 col-sm-6 product-sidebar" itemscope itemprop="offers" itemtype="http://schema.org/Offer">
+   
+  {# Brand #}
+  {% if product.brand %}
+    <a class="row nomargin" href="{{ product.brand.url | url }}" title="{{ product.brand.title }}">{{ product.brand.title }}</a>
+  {% endif %}
+  {# / Brand #}  
+    
+  <h1 class="row nomargin">
+    Pre-owned {{ product.title | replace ({'OCC': ''}) }}
+  </h1>
+  
+    {# Price #}
+    <meta itemprop="price" content="{{ product.price.price | number_format(2, '.', '') }}" />
+    <meta itemprop="priceCurrency" content="{{ shop.currency | upper }}" />
+    <meta itemprop="url" content="{{ request.url }}" />
+       
+    <big class="row nomargin mar-12">{{ shop.currency2.symbol }} {{ product.price.price | money_without_currency }}</big>
+
+    {# / Price #}
+     
+   	<meta itemprop="availability" content="{% if product.stock.on_stock %}InStock{% else %}OutOfStock{% endif %}"> 
+ 
+        
+  	{# Add to cart and WhatsAPP if stock is available #}
+		{% if product.stock.available %} 
+    
+    {# WhatsApp #} 
+    <div class="row">
+      <a class="sc-center col-xs-12 col-md-7" style="background:#00E676; padding:1rem;color:#fff; border-radius:4px;" onclick="contactMeasure('WhatsApp')"
+        {% if request.device.mobile %}
+          href="https://wa.me/31625553542" target="_blank" title="Schaap en Citroen Whatsapp"
+        {% else %}
+          href="https://web.whatsapp.com/send?phone=31625553542" target="_blank" title="Schaap en Citroen Whatsapp"
+        {% endif %}
+         >
+        <i style="color:ffffff" class="fab fa-whatsapp"></i> Chat direct met Pre-owned expert
+      </a>
+    </div>
+      
+    <form class="row pad-12" action="{{ ('cart/add/' ~ product.vid) | url }}" id="product_configure_form" method="post" onclick="addToCart('{{ product.sku }}', '{{ product.url | replace ({'.html':''}) }}', '{{ product.price.price_incl }}', '{{ product.brand.title }}', '1')">
+
+      <div class="col-xs-12 nopadding">
+        {{ product | html_product_configure | raw }}
+      </div>
+
+      <a class="cartbutton mar-12 col-xs-12 col-sm-7" id="sale-form" href="javascript:;" onclick="$('#product_configure_form').submit();" title="{{ 'Order now' | t }}">
+        {{ 'Order now' | t }}
+      </a>      
+      <small class="col-xs-12 col-sm-7 sc-center" style="opacity:0.8;"><i class="fa fa-lock" aria-hidden="true"></i> {{ 'Safe & secure online payment' | t }}</small>
+    </form>
+    
+    {% else %}
+				<div class="row nopadding">
+          <div class="col-xs-12 col-sm-7 nopadding">
+            <p>{{ 'Available on request' | t }}.</p>
+          </div>
+          <a class="cartbutton mar-12 col-xs-12 col-sm-7" href="#form-3" onclick="collapseButton('zoekhorloge-container')">{{ 'Enquire' | t }}</a> 
+    		</div>
+    {% endif %}
+    {# End add to cart #}
+      	     
+    <div class="row col-xs-12 nopadding col-sm-7">
+    
+    {# Only show form buttons when stock #}
+    {% if product.stock.available %}
+      <div class="col-xs-6" style="padding-left: 0;">
+        <a class="contact-button" href="#form-1" onclick="collapseButton('afspraak-container')">{{ 'Plan appointment' | t }}</a>
+    	</div>
+ 
+      <div class="col-xs-6" style="padding-right: 0;">
+      	<a class="contact-button" href="#form-2" onclick="collapseButton('offerte-container')">{{ 'Offerte aanvragen' | t }}</a>
+    	</div>
+    {% endif %}
+    {# /Only show form buttons when stock #}
+      
+    </div>
+    
+  	{% include 'snippets/usp-block.rain' %}
+		
+		<hr>
+    <div class="row col-xs-12 pad-12">
+    	<h2 class="col-xs-11 nopadding nomargin"><strong>{{ 'Description & details' | t}}</strong></h2>
+      <a class="col-xs-1 sc-right" href="#" onClick="window.print(); return false;" title="{{ 'Print' | t }}" rel="nofollow"><i class="fa fa-print" aria-hidden="true"></i></a>
+    </div>
+    
+    <div class="row col-xs-12 pad-12">
+      
+      <span class="col-xs-2 nopadding">{{ 'share' | t | capitalize }} </span>
+       <a data-gtm-share="Facebook" class="col-xs-1 social-link" href="http://www.facebook.com/sharer.php?u={{ request.url | url }}" target="_blank" rel="nofollow">
+        <i data-gtm-share="Facebook" class="fab fa-facebook" style="color:#3B5998;"></i>
+      </a>
+
+      <a data-gtm-share="Twitter" class="col-xs-1 social-link" href="http://twitter.com/share?text={{ 'have you seen this:' | t }}&url={{ request.url | url }}" target="_blank" rel="nofollow">
+        <i data-gtm-share="Twitter" class="fab fa-twitter" style="color:#00aced;"></i>
+      </a>
+
+      <a data-gtm-share="LinkedIn" class="col-xs-1 social-link" href="http://www.linkedin.com/shareArticle?mini=true&url={{ request.url | url }}" target="_blank" rel="nofollow">
+        <i data-gtm-share="LinkedIn" class="fab fa-linkedin-in" style="color:#4875B4;"></i>
+      </a>
+    
+    {% if request.device.mobile %}
+       
+      <a data-gtm-share="WhatsApp" class="col-xs-1 social-link" href="whatsapp://send?text={{ 'I think this is interesting for you' | t }}:%20{{ request.url | url }}">
+      	<i data-gtm-share="WhatsApp" class="fab fa-whatsapp" style="color:#25D366;"></i>
+    	</a>
+      
+    {% else %}
+    
+      <a data-gtm-share="WhatsApp" class="col-xs-2 social-link" href="https://web.whatsapp.com/send?text={{ 'I think this is interesting for you' | t }}:%20{{ request.url | url }}" target="_blank">
+      	<i data-gtm-share="WhatsApp" class="fab fa-whatsapp" style="color:#25D366;"></i>
+    	</a>
+    
+    {% endif %}
+    </div>  
+    
+    {% if product.content %}
+    	<div class="row">{{ product.content | raw }}</div>
+
+    {% endif %}
+    {#
+        {% if not product.stock.available %}
+    	<p>Test </p>
+    {% endif %} #}
+    
+    {% if product.specs %}
+    <ul class="list-unstyled col-xs-12" id="prod-specs">
+      {% for spec in product.specs %}
+        {% if spec.value %}
+        <li class="col-xs-12">
+          <strong class="col-xs-6 nopadding">{{ spec.title }}:</strong>
+          <span class="col-xs-6 nopadding">
+            {% if spec.title == 'Staat' %}
+              {% include 'snippets/watch-state.rain' %}
+              <a onclick="showState()" return="false">{{ spec.value }}</a>
+          	{% else %}
+            	{{ spec.value }}
+            {% endif %}
+          </span>
+        </li>
+        {% endif %}
+      {% endfor %}
+      
+      {% if product.sku %}
+      	<li class="col-xs-12">
+        	<strong class="col-xs-6 nopadding">{{ 'Artikelcode' | t }}:</strong>
+        	<span class="col-xs-6 nopadding">{{ product.sku }}</span>
+      	</li>
+    	{% endif %}
+      
+    </ul>
+
+    {% endif %}
+    
+    {% if not product.code and product.stock.track and product.stock.on_stock and product.stock.delivery and product.unit and product.content %}
+      <em>{{ 'No information found' | t }}</em>
+    {% endif %}
+
+    {# Check if stock for forms #}     
+    {% if product.stock.available %}
+
+      {# Appointment #} 
+      <a id="form-1" href="#afspraak-container" class="sc-form col-xs-12" data-toggle="collapse">{{ 'Plan appointment' | t }}</a>                 
+      {% include 'snippets/form-appointment.rain' %}                                    
+      {# End Appointment #}
+
+      {# Request offer #} 
+      <a id="form-2" href="#offerte-container" class="sc-form col-xs-12" data-toggle="collapse">{{ 'Offerte aanvragen' | t }}</a>
+      {% include 'snippets/form-offer.rain' %}
+      {# End Request offer #}
+         
+    {% else %}
+    
+      {# Request watchhunt #} 
+      <a id="form-3" href="#zoekhorloge-container" class="sc-form col-xs-12" data-toggle="collapse">{{ 'Enquire' | t }}</a>
+      {% include 'snippets/form-watch-hunter.rain' %}
+      {# End Request offer #}
+
+    {% endif %}
+    
+    {# Trade in #} 
+    <a href="#inruilen-container" class="sc-form col-xs-12" data-toggle="collapse">{{ 'Inruilen' | t }}</a>
+    {% include 'snippets/form-exchange.rain' %}
+    {# End trade in #}
+                     	          
+	</section> 
+  
+</article>   
+
+{#
+<aside class="row">
+  <a class="col-xs-12 col-sm-7 nopadding" href="/{{ product.brand.url }}" title="{{ product.brand.title }} {{ 'watches' | t }}">
+    {{ 'See other' | t }} {{ product.brand.title }} {{ 'watches' | t }}
+  </a>
+</aside>
+#}
+
+{# TRUST BLOCK #}
+	{% include 'snippets/trust-block.rain' %}
+{# / TRUST BLOCK #}

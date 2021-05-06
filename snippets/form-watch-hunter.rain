@@ -1,51 +1,13 @@
 {# snippets/form-watch-hunter.rain #}
-<div id="zoekhorloge" class="collapse col-xs-12">    
-  <form id="wd-zoekhorloge" class="inline col-xs-12 col-sm-7">
-    <input type="hidden" name="formulier" value="{{ 'Watch Hunter' | t }} - {{ 'Customer' | t }} is {{ shop.language }}">
+<div id="zoekhorloge-container" class="collapse col-xs-12">    
+  <form id="zoekhorloge" class="inline">
+    <input type="hidden" name="formulier" value="{{ 'Enquire form' | t }} - {{ 'Customer' | t }} is {{ shop.language }}">
     <input type="hidden" name="Site" value="Site: {{ shop.name }}">
 
     <small>{{ 'Fields marked with * are required' | t}}</small>
 
-    <h4>{{ 'Watch information' | t }}</h4>
-    <select name="Merk"> 
-      <option value="">{{ 'Please select your desired brand' | t}}</option>
-      <option value="Audemars Piguet">Audemars Piguet</option>
-      <option value="Baume Mercier">Baume & Mercier</option>
-      <option value="Blancpain">Blancpain</option>
-      <option value="Breguet">Breguet</option>
-      <option value="Breitling">Breitling</option>
-      <option value="CHANEL">CHANEL</option>
-      <option value="Cartier">Cartier</option>
-      <option value="Chopard">Chopard</option>
-      <option value="Christiaan v.d Klaauw">Christiaan v.d Klaauw</option>
-      <option value="Hublot">Hublot</option>
-      <option value="IWC">IWC</option>
-      <option value="Jaeger-LeCoultre">Jaeger-LeCoultre</option>
-      <option value="Longines">Longines</option>
-      <option value="Montblanc">Montblanc</option>
-      <option value="Officine Panerai">Officine Panerai</option>
-      <option value="Omega">Omega</option>
-      <option value="Patek Philippe">Patek Philippe</option>
-      <option value="Piaget">Piaget</option>
-      <option value="RADO">RADO</option>
-      <option value="Roger Dubuis">Roger Dubuis</option>
-      <option value="Rolex">Rolex</option>
-      <option value="Tag Heuer">Tag Heuer</option>
-      <option value="Tudor">Tudor</option>
-      <option value="Ulysse Nardin">Ulysse Nardin</option>
-      <option value="Vacheron Constantin">Vacheron Constantin</option>
-      <option value="Zenith">Zenith</option>
-    </select>
-
-    <textarea name="message" rows="5" placeholder="{{ 'Model, color, diameter, year etc.' | t }}" class="text"></textarea>
-    <input type="number" name="budget" placeholder="{{ 'Budget in €: i.e. 8000' | t }}" required class="text" />
-
-    <label>{{ 'Do you prefer a new or pre-owned watch' | t }}?</label>
-    <select name="nieuwoftweedehands">
-      <option value="Alleen nieuw">{{ 'Only new' | t }}</option>
-      <option value="Alleen gebruikt">{{ 'Only Pre-owned' | t }}</option>
-      <option value="Nieuw en gebruikt">{{ "I don't have a preference" | t }}</option>
-    </select>
+    <input type="hidden" name="Merk" value="{{ product.brand.title }}" /> 
+    <input type="hidden" name="Referentie nr" value="{{ product.code }}" /> 
 
     <h4>{{ 'Your contact details' | t}}</h4>
 
@@ -54,7 +16,13 @@
     <input type="tel" name="telefoon" placeholder="{{ 'Phone number' | t }}" class="text" />
     <input type="text" name="land" placeholder="{{ 'Country' | t }}" class="text" />
 
-    <input type="checkbox" name="consent" value="yes" required><i style="color:#2cb323" class="fa fa-lock" aria-hidden="true"></i> {{ 'I do accept the' | t }} <a href="https://www.schaapcitroen.nl/nl/service/privacy-policy/" target="_blank">{{ 'privacy policy' | t }}</a> *.
+    <input type="checkbox" name="consent" value="yes" required>
+    
+    <i style="color:#2cb323" class="fa fa-lock" aria-hidden="true"></i> 
+    {{ 'I do accept the' | t }} 
+    <a href="https://www.schaapcitroen.nl/{{ shop.language }}/service/privacy-policy/" target="_blank">
+      {{ 'privacy policy' | t }}
+    </a> *.
 
     <input type="submit" value="{{ 'Send' | t }}" />
 
