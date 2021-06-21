@@ -60,3 +60,6 @@
 
   </ul>
 </nav>
+{% if (template == "pages/index.rain") or (template == "pages/collection.rain") %}
+	{% include 'snippets/form-search-mobile-nav.rain' %}
+{% endif %}
